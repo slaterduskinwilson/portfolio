@@ -113,5 +113,14 @@ config.js
 #firebase crap:
 .firebase/
 
+#audio files
+*.mp3
+*.mp4
+*.ogg
+*.wav
+*.aif
+*.aiff
+
+
 
 
