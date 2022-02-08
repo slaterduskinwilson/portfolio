@@ -1,0 +1,245 @@
+console.log('loaded music player script.js')
+
+
+let fullTrackList = <%- JSON.stringify(songs) %>
+
+
+let trackName = document.querySelector('.trackName')
+
+let volumeSlider = document.querySelector('.volumeSlider')
+volumeSlider.addEventListener('input', setVolume)
+let seekSlider = document.querySelector('.seekSlider')
+seekSlider.addEventListener('input', seekTo)
+//this is the equivalent of onchange="seekTo()" in the HTML file. The reason those functions aren't firing is that the functions in THIS script file are module scoped, so they're not accessible in the html file. They WOULD be accessible if we literally put those functions inside script tags on that html, but we're importing this script as a module. Make sense?
+
+let previousButton = document.querySelector('.previousButton')
+previousButton.addEventListener('click', previousTrack, false)
+
+let playButton = document.querySelector('.playButton')
+
+playButton.addEventListener('click', playPauseTrack, false)
+let nextButton = document.querySelector('.nextButton')
+nextButton.addEventListener('click', nextTrack, false)
+
+let trackCurrentTime = document.querySelector('.trackCurrentTime')
+//this refers to the DIV above our seekSlider than shows us the track position
+let trackDuration = document.querySelector('.trackDuration')
+//this refers to the div after the seek slider, that displays the track length
+
+// here's where we specify our global values as they appear from the start... 
+
+let trackIndex = 0
+let isPlaying = false
+    
+let updateTimer
+//initialize our variable that we'll use as a return from our setInterval function
+
+// create the audio element for the player to play: 
+let currentTrack = document.createElement('audio')
+// we're only creating ONE audio element, but each time we load up another track with the loadTrack function, we change that element's source
+
+
+//WE'RE TRYING TO GET OUR LOAD AND DISPLAY TO HAPPEN ASYNCRONOUSLY!
+//so that the timer doesn't flash NAN. Don't display any track duration until there is a track!
+
+  // ok, now we need to call our loadTrack function, to load up the first track when our page loads up:
+  loadTrack(trackIndex, ()=> console.log('loaded first track!'), ()=> console.log('reset the display values'))
+  //we can't call loadAndPlay because the browser won't play any audio unless the user clicks something
+
+
+function loadAndPlayTrack(trackIndex) {
+    //this function will load and play a song when you click the PLAY THIS TRACK button in the playlist
+    loadTrack(trackIndex, playTrack, resetValues)
+    //we want to pass playTrack, the function, to loadTrack as a callback! That way we only play AFTER we have an audio source loaded
+    playTrack()
+
+}
+
+
+function loadTrack(trackIndexNumber, playCallback, resetCallback) {
+    //I'm trying to get this old school async thing down, and only load play the track and reset the duration value AFTER a track has been loaded, so we avoid flashing 00:00 and NaN in the duration box!
+
+
+
+     // NOTE: the clearInterval() method uses the variable returned from setInterval, in order to STOP that function. like this:
+    //     let myVar = setInterval(function, milliseconds);
+    // clearInterval(myVar);
+    
+    // clear the previous seek timer:
+    clearInterval(updateTimer)
+    // resetValues() 
+
+
+    currentTrack.src = fullTrackList[trackIndexNumber].signedUrl
+
+
+    currentTrack.load()
+    //you have to call the load method after you change the source of the audio element, in order to play the new version of that audio element
+
+    
+    // console.log(`the duration of the current track is: ${currentTrack.duration}`)
+
+    trackName.innerHTML =  `<h2>Now playing: "${fullTrackList[trackIndexNumber].title}"</h2>`
+    //display songname of the track we're currently playing!
+
+ // move to the next track if the current one finishes playing, using the "ended" event
+    currentTrack.addEventListener('ended', nextTrack)
+
+    resetCallback()
+    //call our reset function, resetValues()
+
+
+    playCallback()
+    // call our playcallback function, which is going to be playTrack()
+}
+
+
+function resetValues() {
+     // reset all values to their defaults:
+    trackCurrentTime.textContent = '00:00'
+    trackDuration.textContent = currentTrack.duration
+    seekSlider.value = 0
+
+}
+
+// now, to configure the player buttons!
+// we're gonna use the play() and pause() methods of the HTMLMediaElement API
+
+
+function playPauseTrack() {
+   // switch between playing or pausing, depending on the current state of that track
+    if (!isPlaying) playTrack()
+    else pauseTrack()
+}
+
+function playTrack() {
+   // play the currently loaded song
+    currentTrack.play()
+    isPlaying = true
+// replace the play icon with the pause icon 
+    playButton.innerHTML = '<i class="fas fa-car-crash"></i>'
+    console.log("you're trying to play!")
+   
+
+    updateTimer = setInterval(seekUpdate, 1000)
+    //update the track duration display, every second that the song is playing
+
+    //why isn't this function firing?
+    //UPDATE: i think it's because i'm not actually calling seekUpdate when the track plays...
+    //i'm setting its RETURN VALUE to updateTimer, and its return value is the code you need to STOP it firing with clearInterval.
+}
+
+function pauseTrack() {
+     // pause the currently loaded track
+    currentTrack.pause()
+    isPlaying = false
+    playButton.innerHTML = '<i class="fas fa-fighter-jet"></i>'  
+    //change the icon back to the little fighter jet. 
+    
+    clearInterval(updateTimer)
+    //stop firing the seekUpdate function
+ 
+}
+
+function nextTrack() {
+    // go to the next track, or go back to the first track if the current track is the last one in the list
+
+    if (trackIndex < fullTrackList.length - 1) {
+        trackIndex++
+    } else {
+        trackIndex = 0
+    }
+    // load and play the new track:
+
+    loadAndPlayTrack(trackIndex);
+}
+
+function previousTrack() {
+   // if the track isn't track #1 aka trackList[0], decrement the index number. If it IS track 1, go to the last track in the list, which is at trackList[trackList.length -1] 
+  
+    if (trackIndex > 0) {
+        trackIndex--
+    } else {
+        trackIndex = fullTrackList.length - 1
+    }
+   // then automatically load and play the new track: 
+    // loadTrack(trackIndex)
+    // playTrack()
+
+    loadAndPlayTrack(trackIndex);
+
+}
+
+  // now let's configure our sliders:
+function seekTo() {
+// calculate the seek position using the percentage of the seek slider, and get the relative duration of the track
+    seekSpot = currentTrack.duration * (seekSlider.value / 100)
+    //seekSpot is the current timestamp of where you are in the track. We take the entire duration of the track, and multiply it by "the percentage that the slider is at"
+
+    //remember, duration is a built-in HTMLMediaElement property!
+
+    // set the current track position to the calculated seek position! AKA: when you move the seek slider, the song seeks to the corresponding position
+    currentTrack.currentTime = seekSpot 
+    //note: currentTime is an html audio property, not something we defined ourselves!
+}
+// currentTrack.trackCurrentTime = seekSpot 
+//trackCurrentTime refers to the DIV with that class, which is the timestamp display of the current time 
+
+function setVolume() {
+    // set the volume according to the percentage of the volume slider
+    //volume has to be between 0 and 1, hence the division
+    currentTrack.volume = volumeSlider.value / 100
+}
+
+function seekUpdate() {
+
+    // this makes it so the seek slider goes up by 1 each time a second elapses, so that it's current to your place in the song! 
+
+    //we need to make sure to CALL THIS FUNCTION once every second when the track is playing, and hang on to the return value so we can clearInterval.
+    //hmmmmm
+    // console.log('seekUpdate fired!')
+
+    let seekPosition = 0
+
+//  check if the current track duration is a legible number:
+    if (!isNaN(currentTrack.duration)) {
+        seekPosition = currentTrack.currentTime * (100 / currentTrack.duration)
+        seekSlider.value = seekPosition
+    }
+  // calculate the time left and the total duration
+    let currentMinutes = Math.floor(currentTrack.currentTime / 60)
+    let currentSeconds = Math.floor(
+        currentTrack.currentTime % 60
+    )
+
+    // console.log(`current seconds: ${currentSeconds}`)
+    let durationMinutes = Math.floor(currentTrack.duration / 60)
+    let durationSeconds = Math.floor(
+        currentTrack.duration % 60
+    )
+// we're gonna add a zero to the single digit time values
+    if (currentSeconds < 10) {
+        currentSeconds = '0' + currentSeconds
+    }
+
+    // console.log('current time is', currentTrack.currentTime)
+    if (currentSeconds >= 60) {
+        currentSeconds = 0
+        currentMinutes += 1
+    }
+  // concatenate a zero to the beginning!
+    if (durationSeconds < 10) {
+        durationSeconds = '0' + durationSeconds
+    }
+    if (currentMinutes < 10) {
+        currentMinutes = '0' + currentMinutes
+    }
+    if (durationMinutes < 10) {
+        durationMinutes = '0' + durationMinutes
+    }
+
+   // display the updated duration
+    trackCurrentTime.textContent = currentMinutes + ':' + currentSeconds
+    trackDuration.textContent = durationMinutes + ':' + durationSeconds
+}
+

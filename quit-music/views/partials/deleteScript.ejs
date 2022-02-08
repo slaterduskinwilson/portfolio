@@ -1,0 +1,27 @@
+<script type="text/javascript">
+
+   function areYouSure(element) {
+    //    console.log(element.parentElement.firstElementChild)
+    //    this gives us the div of the class "areyousure," we want to remove the HIDDEN class from this div
+
+    let allTheHiddenForms = document.querySelectorAll('.areyousure')
+    //first, let's scoop up ALL the other hidden menus that could potentially be open, and let's make sure to hide them
+    allTheHiddenForms.forEach(form => {
+        if (!form.classList.contains('hidden')) {
+            form.classList.add('hidden')
+        }
+    })
+    //then, remove the hidden class from this specific form
+    let hiddenDiv = element.parentElement.firstElementChild
+    hiddenDiv.classList.remove("hidden")
+
+   }
+
+   function changedMyMind(element){
+    //if you change your mind, just hide this element
+
+       console.log(element)
+       element.parentElement.classList.add('hidden')
+   }
+
+</script>

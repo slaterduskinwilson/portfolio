@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap" rel="stylesheet"> 
+        <title>Oh Crap</title>
+        <style>
+            body {
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+                /* antialiasing makes our fonts clearer, only works on macos. see https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
+
+            }
+
+           .font-creepster {
+            font-family: 'Creepster', cursive;
+            text-shadow: 2px 2px 10px black;
+           }
+
+           .font-pixel {
+            font-family: 'VT323', monospace;
+            text-shadow: 2px 2px 10px black;
+           }
+            
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <div
+                class="absolute text-white text-center "
+                style="top: 50%; transform: translate(-50%, -50%); left: 50%"
+            >
+                <!-- inline style contains the old-school trick for centering a div... cumbersome -->
+                <h1 class="font-creepster text-9xl tracking-wide">Matthew Wilson</h1>
+                <p class="font-pixel text-5xl">This guy's about to...</p>
+
+                <!-- anchor tags have a default class of inline in tailwind, so if we want all our style to happen we need to specify that it's inline-block instead -->
+                <a href="http://svu-soundboard.web.app" target="_blank" rel="noopener noreferrer" class="inline-block font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-10 hover:bg-white hover:text-gray-800">View Portfolio</a>
+                <button id="other-button" class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-10 hover:bg-white hover:text-gray-800">Do Other Thing!</button>
+            </div>
+        </div>
+
+        <script type="module" src="/main.js"></script>
+        <script type="module" src="/script.js"></script>
+    </body>
+</html>

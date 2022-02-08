@@ -1,0 +1,21 @@
+<h3 class="playlist-heading">Playlist:</h3>
+<div class="playlist">
+    
+    <div class="playlistcontent">
+
+<% bucketPlaylist.forEach( (element, index) => { %>
+
+
+    <h5><%= element.metadata.name%></h5>
+  
+    <br>
+
+    <button class="playthistrack"  id="<%= element.metadata.name%>" data-index='<%= index %>' onclick="loadAndPlayTrack(dataset.index)">Play This Track</button>
+    <!-- when we click this button, we want the playerscript to load the music file as the source of our single audio element, so we can play it -->
+    
+    <!-- note: we're pulling the loadTrack(trackindex) function from our playerscript.ejs file! No need to define it separately in playlist.ejs-->
+   
+    <% }) %>
+</div>
+</div>
+    

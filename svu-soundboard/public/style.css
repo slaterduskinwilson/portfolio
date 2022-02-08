@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./images/dickwolf.png');
+    /* background-color: rgb(120, 224, 16); */
+    margin: 1%;
+    text-shadow: 2px 2px black;
+
+    /* text-align: center;
+    height: 100vh; */
+    /* now that the body takes up the entire viewport height, all the text will be smack in the middle of the page */
+    /* overflow: hidden; */
+    /* now scrollbars aren't shown by default */
+}
+
+
+.charselect {
+    color: white;
+    
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}
+
+#lineup {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content:space-around;
+   margin: 0 20px;
+  
+
+   
+}
+
+
+.btn {
+    /* background-color: rgb(190, 18, 70); */
+    background-image: url('./images/street.png');
+    border-radius: 5px;
+    border: 2px solid black;
+    color: white;
+    padding: 1.5rem 3rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.btn:hover {
+    background-image: url('./images/nyc1.png');
+}
+.btn:focus {
+    outline: none;
+}
+
+#buttons {
+    /* this is the area where our play buttons are */
+    display: flex;
+    /* to center everything */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+
+
+
+.tallbutton {
+    background-size: 100%;
+    height: 400px;
+    width: 200px;
+    background-size: cover;
+    color: bisque;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin: 10px;
+}
+.hilited {
+    border: 5px solid white;
+}

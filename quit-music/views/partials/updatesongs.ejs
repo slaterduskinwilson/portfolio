@@ -1,0 +1,109 @@
+ <script type="text/javascript">
+    // this is the script for the collapsing UPDATE SONG menu
+    // i think i need to specify that these scripts are JS, if i'm using ejs, if i wanna throw js style comments in here
+
+    const myForm = document.getElementById('myForm')
+
+    let listItems = document.querySelectorAll('.updatesonglink');
+    // select all of our li tags within the updatesongs dropdown
+    listItems.forEach(element => {
+        element.addEventListener('click', openCloseForm)
+    })
+
+let formOpen = false;
+//in its initial state, the form isn't open
+function openCloseForm(event){
+    //show or hide the form, and also let's get the uniqueID of that particular song (yeah, yeah... sorry for the capitalization of uniqueID)
+    //NOTE: the uniqueID is now stored in the id attribute of these elements! bahahaha
+    if (!formOpen) {
+        addSongTitle(event.target.dataset.songtitle)
+        //add the song title to the form
+        // createHiddenElement(event.target.id)
+        //add the uniqueID to the form
+        //UPDATE: uniqueID isn't useful right now
+        addFileName(event.target.dataset.filename)
+        //add the name of the file to the form
+        openForm()
+        console.log('the event is: ', event.target.id)  
+        console.log('and the file name is: ', event.target.dataset.filename)
+        
+    } else {
+        removeSongTitle()
+        removeFileName()
+        // removeHiddenElement()
+        //get rid of the title, filename, and hidden uniqueID input, so that they don't all stack up on each other every time we click a different song in the bucket playlist
+        closeForm()
+    }
+    formOpen = !formOpen
+    //flip our boolean "IS THE FORM OPEN?" variable
+
+    // console.log('song title? ', event.target.dataset.songtitle)
+    //you'd think it would be even.target.data-songtitle, wouldn't you? but it's dataset!!!!!
+}
+
+function openForm() {
+  myForm.style.display = "block";
+//   console.log('openForm function fired')
+}
+
+function closeForm() {
+  myForm.style.display = "none";
+//   console.log('closeForm function fired')
+}
+
+//we need functionality to put the name of the song in our hidden form
+function addSongTitle(song){
+    let theTitle = document.createElement('h6')
+    //create an h6 tag
+    theTitle.setAttribute('id', 'song-to-update')
+    //give that tag an id so we can grab it later!
+    let theTitleText = document.createTextNode(song)
+    //create a string with the song name
+    let whereYouWantToPutIt = document.getElementById('form-title')
+    //define where to stick that h6 tag
+    theTitle.appendChild(theTitleText)
+    //put the text node inside the h6 tag
+    whereYouWantToPutIt.appendChild(theTitle)
+    //then stick that h6 tag onto the DOM
+
+}
+
+function removeSongTitle(){
+    //make the song title disappear, so we don't wind up stacking up a whole shitload of them!
+    let theTitle = document.getElementById('song-to-update')
+    theTitle.remove()
+    //"can it be that it was all so simple, then?"
+}
+
+function addFileName(nameOfFile) {
+    //add the file name to the form with the id of "updater-form"
+    let updaterForm = document.getElementById('updater-form')
+    //this is where we're gonna stick the element
+    let fileName = document.createElement('input')
+    fileName.setAttribute('type', 'hidden')
+    fileName.setAttribute('name', 'fileName')
+    fileName.setAttribute('value', nameOfFile)
+    //now we have a hidden input with {fileName: nameOfFile}
+    fileName.setAttribute('id', 'name-of-file')
+    //now it has an id
+    updaterForm.appendChild(fileName)
+    //now the file name is attached to our update form!
+
+}
+
+//ok, 
+//SO NOW
+//our form has:
+// {fileName: nameOfFile}
+//and a method of POST
+//so we're passing this data to our server as.... req.body.fileName
+//...CAPITAL LETTER!  req.body.fileName
+
+function removeFileName(){
+    let theFileName = document.getElementById('name-of-file')
+    theFileName.remove()
+    //get rid of that fileName when we close the menu!
+}
+
+
+</script>

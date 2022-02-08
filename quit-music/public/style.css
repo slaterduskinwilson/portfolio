@@ -1,0 +1,517 @@
+:root {
+  /* defining variables to use as colors */
+  --pink: rgb(194, 45, 107);
+  --red: #ff2a6b;
+  --yellow: rgb(226, 198, 74);
+
+  --blue: rgb(1, 154, 165);
+  --green: rgb(32, 235, 32);
+
+  /* h1 color: #ff2a6b */
+  /* body background background-color: #fcbf4e; */
+  /* uploader background color #3e8e41; */
+  /* playbutton color: deepskyblue */
+
+
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fcbf4e;
+    font-family: 'Azeret Mono', monospace;
+    /* from google fonts */
+   
+    overflow-x: hidden;
+    /* padding: 5%; */
+
+    /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto; */
+}
+.title {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0 3%;
+}
+
+.title p {
+  margin: 1%;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  padding: 5%;
+}
+
+
+h1, h2, h3, h4, h5 {
+    color: var(--red);
+}
+
+.player-search {
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+  padding: 1%;
+  gap: 2%;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+#search-filter {
+  background-color: var(--red);
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+
+
+}
+
+#search-filter form {
+  margin: 2%;
+  padding: 2%;
+}
+
+#search-filter h3 {
+  color: var(--yellow)
+}
+
+#search-filter form select {
+  font-size: 1rem;
+}
+
+#search-filter form input[type="submit"] {
+  font-size: 1rem;
+}
+
+#search-filter form input[type="text"] {
+  font-size: 1rem;
+  width: 100%;
+  margin: 5% 0;
+}
+
+.musicPlayer {
+    /* height: 40%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.trackDetails {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 25px; */
+}
+
+.trackArt {
+    margin: 5%;
+    height: 250px;
+    width: 250px;
+    background-image: URL('https://thecomicscomic.com/wp-content/uploads/2011/09/chrismeloni-gene-wethot-585x315.jpg');
+    background-size: cover;
+    background-position: center;
+    /* border-radius: 15%; */
+}
+
+.theButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+  
+}
+
+.previousButton,
+.playButton,
+.nextButton {
+    padding: 25px;
+    margin: 0;
+    /* border: 10px solid var(--red); */
+  
+    border-radius:10px;
+    /* border-style: none; */
+    border-color: var(--red);
+    outline: none;
+    background-color: var(--red);
+    color: rgb(122, 234, 238);
+    text-shadow: 2px 1px 1px var(--yellow);
+}
+
+.sliders {
+    
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+
+.durationDisplay {
+  display: flex;
+
+  margin: 0;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.volumeDisplay {
+  display: flex;
+  width: max-content;
+ 
+
+  margin: 1rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+
+
+/* as i understand, webkit-slider-thumb refers to the actual little nub that you click on and drag when you want to change the slider data */
+.volumeSlider::-webkit-slider-thumb,
+.seekSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    /* background: rgb(207, 152, 0); */
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.volumeSlider:hover,
+.seekSlider:hover {
+    opacity: 1;
+}
+
+.seekSlider {
+    width: 70%;
+}
+.volumeSlider {
+    width: 40%;
+}
+
+.currentTime,
+.trackDuration {
+    padding: 10px;
+}
+
+.fa-volume-down,
+.fa-volume-up {
+    padding: 0;
+}
+
+.fa-fast-backward,
+.fa-fighter-jet,
+.fa-car-crash,
+.fa-fast-forward {
+    cursor: pointer;
+    font-size: x-large;
+}
+
+.fa-fast-backward:hover,
+.fa-fast-forward:hover,
+.fa-fighter-jet:hover,
+.fa-car-crash:hover {
+    /* background-color: whitesmoke; */
+}
+
+.updatesongs {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* the following is styling for a dropdown menu that i mostly copied from an example at https://www.w3schools.com/howto/howto_css_dropdown.asp */
+/* Dropdown Button */
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: sticky;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+  
+  /* Change color of dropdown list items on hover */
+  /* NOTE i changed anchor tags to li tags, hopefully didn't miss any! */
+  .dropdown-content li:hover {background-color: #ddd;}
+
+  /* hide the toilet paper icons by default */
+  .dropdown-content .hidden {
+      display: none;
+  }
+
+  /* show the toilet paper edit icon when you hover on one of the links */
+  .dropdown-content li:hover .hidden {
+      display: block;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%px;
+    padding: 5%px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  .playlist-heading {
+    color: var(--blue);
+    font-weight: bold;
+  }
+
+  .playlist {
+    /* padding: 1rem; */
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    width: 100%;
+    overflow-y: auto;
+    margin: 2% auto 0;
+  }
+
+  .playlist-content {
+    background-color: antiquewhite;
+    padding: 1% 0;
+    margin: 1% 0;
+  }
+  .playlist-row {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    min-width: max-content;
+    padding: 0 1%;
+    margin: 0 1%;
+
+  }
+
+  .playlist-row:hover {
+    background-color: var(--red);
+    color: rgb(84, 199, 249);
+  }
+
+  .playlist-row:hover h3 {
+    /* background-color: var(--red); */
+    color: var(--green);
+  }
+
+  .playlist-row button {
+    cursor: pointer;
+  }
+
+  .playlist-field {
+    margin: 2%;
+  }
+
+  .playlist-field:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+    cursor: pointer;
+
+  }
+
+  .playlist-field.hidden {
+    /* hide the playlist fields when they have this class */
+    display: none;
+    /* visibility: hidden; */
+  }
+
+  .playlist-field.hidden::after {
+    display: inline;
+    
+  }
+
+
+
+  .playthistrack {
+    border-radius: 2px;
+    padding: 1%;
+    max-height: min-content;
+  }
+
+  .deletethistrack {
+    border-radius: 2px;
+    padding: 0.5%;
+    font-size: 0.5rem;
+  }
+
+  .areyousure {
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    position: fixed;
+    top: 50vh;
+    right: 20vw;
+  }
+
+  .areyousure h1 {
+    text-shadow: 1px 1px 1px black;
+  }
+
+
+  .areyousure.hidden {
+    display: none;
+  }
+
+  .reallydelete {
+    background-color: var(--red);
+    color: var(--yellow);
+    font-size: 0.8em;
+    padding: 0.8em;
+    border-radius: 10px;
+    margin: 1%;
+  }
+
+  .reallydelete:hover {
+    background-color: var(--blue);
+    color: var(--yellow);
+    
+  }
+
+  .changedmymind {
+    background-color: var(--green);
+    color: var(--blue);
+    font-size: 0.8em;
+    padding: 0.8em;
+    border-radius: 10px;
+    margin: 1%;
+
+  }
+
+  .changedmymind:hover {
+    background-color: var(--blue);
+    color: var(--yellow);
+  }
+
+
+  .uploader {
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: auto;
+    /* padding: 4em; */
+    margin: 0% auto 2%;
+    padding: 2%;
+  }
+
+
+
+  #uploadForm {
+    
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #uploadForm input {
+    margin: 1%;
+    font-size: 1.2em;
+  }

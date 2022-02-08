@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script
+            src="https://kit.fontawesome.com/a261a07bf1.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+        <title>Say It, Don't Stabler It</title>
+    </head>
+    <body>
+        <audio id="one" src="sounds/stabler/0.mp3"></audio>
+        <audio id="two" src="sounds/stabler/1.mp3"></audio>
+        <audio id="three" src="sounds/stabler/2.mp3"></audio>
+        <audio id="four" src="sounds/stabler/3.mp3"></audio>
+        <audio id="five" src="sounds/stabler/4.mp3"></audio>
+
+        <div class="charselect">
+            <h1>Select Your Character:</h1>
+        </div>
+        <div id="lineup">
+            
+            
+        </div>
+
+
+
+        <div id="buttons"></div>
+        <!-- our script inserts buttons at this BUTTONS div -->
+
+        <script src="script.js"></script>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyA8R-VAAdLY86Kqzz3LFWcBS-44MCqlojQ",
+              authDomain: "svu-soundboard.firebaseapp.com",
+              projectId: "svu-soundboard",
+              storageBucket: "svu-soundboard.appspot.com",
+              messagingSenderId: "218790336318",
+              appId: "1:218790336318:web:deba37b792c5c36eedbe6f"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+          </script>
+    </body>
+</html>
