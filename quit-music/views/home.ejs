@@ -1,19 +1,34 @@
-<%- include ('partials/head.ejs') %>
+<%- include('partials/head.ejs') %> 
 
-<div class="headline">
+<div class="title">
 
-<h1>Quit Music, Go Back To School</h1>
-<h6>You heard me, <%= user%>.</h6>
-<a href="/logout">Log Out?</a>
 
+<h1>Quit Music, Go Back to School</h1>
+<p>A realistic music app. </p>
+<p>Brought to you by <a href="https://soundcloud.com/hardmikeandthelemonades" target="_blank" rel="noopener noreferrer">Hard Mike and the Lemonades.</a></p>
 </div>
 
-<%- include ('partials/player.ejs') %>
-<%- include ('partials/playlist.ejs') %> <br><br>
-<%- include ('partials/uploader.ejs') %> <br><br>
+<div class="player-search">
 
-<%- include ('partials/updatesongs.ejs') %>
+    <%- include('partials/searchBar.ejs') %> 
+    <%- include('partials/player.ejs') %> 
+    <%- include('partials/playlist.ejs') %> 
+</div>
+
+<%- include('partials/uploader.ejs') %> 
+
+   
 
 
+<script>
+<%- include('./scripts/updateSongs.ejs') %> 
+</script>
+   
 
-<%- include ('partials/foot.ejs') %>
+<script>
+    <%- include('./scripts/playerScript.ejs') %> 
+</script>
+        
+  
+</body>
+</html>

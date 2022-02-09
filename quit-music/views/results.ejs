@@ -4,18 +4,23 @@
 
 
 
-<%- include('partials/fakePlayer.ejs') %> 
+<%- include('partials/player.ejs') %> 
 
 <h4>AND HERE ARE THE SONGS THAT MATCH YOUR SEARCH:</h4>
 
-<%- include('partials/fakePlaylist.ejs') %> 
+<%- include('partials/playlist.ejs') %> 
 
    
      
 <script>
-   <%- include('partials/fakePlayerScript.ejs') %> 
+   <%- include('./scripts/updateSongs.ejs') %> 
+   </script>
+      
+   
+   <script>
+       <%- include('./scripts/playerScript.ejs') %> 
+   </script>
+           
 
-</script>
-<%- include('partials/deleteScript.ejs') %> 
 </body>
 </html>

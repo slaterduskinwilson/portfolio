@@ -53,8 +53,8 @@ app.use(fileUpload({ useTempFiles: true, tempFileDir: '/tmp/' }))
 //added this line per documentation on NPM website
 
 app.get('/', (req, res) => {
-    res.send(
-        '<h1><a href="/auth/google">Authenticate with that creepy global behemoth inflicted upon us by Stanford University!</a></h1>'
+    res.render(
+        'login.ejs'
     )
     //if the user isn't logged in, send them to the google login page
 })
@@ -113,7 +113,7 @@ app.get('/home', isLoggedIn, async (req, res) => {
         .then(results => results)
         .catch(err => console.error(err))
 
-    res.render('fake.ejs', {
+    res.render('home.ejs', {
         songs: fuckItPlaylist,
         planets: planets,
         superheroes: superheroes,

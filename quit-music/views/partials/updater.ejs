@@ -7,9 +7,9 @@
             <!-- create a dropdown where each item displays one of the songs in the bucket, along with an icon to show/hide -->
             <ul>
 
-            <% bucketPlaylist.forEach((element, index) => { %>
-                <li class="updatesonglink" id="<%= element.metadata.metadata.uniqueID%>" data-songtitle="<%= element.metadata.metadata.songname%>" data-filename="<%= element.metadata.name %>" >
-                    <%= element.metadata.metadata.songname%> 
+            <% songs.forEach((element, index) => { %>
+                <li class="updatesonglink" id="<%= element._id%>" data-songtitle="<%= element.title%>" data-filename="<%= element.cloudFileName %>" >
+                    <%= element.title%> 
                      <i class="fa-solid fa-toilet-paper editmetadata hidden"> edit? </i>
                 <% }) %>
             </li>
