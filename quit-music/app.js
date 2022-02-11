@@ -231,6 +231,7 @@ app.post('/upload', isLoggedIn, async (req, res) => {
         planet: req.body.planet,
         beatle: req.body.beatle,
         artifact: req.body.artifact,
+        image: req.body.image,
         cloudFileName: options.destination //i think this is is an alright way to get the filename
     })
 

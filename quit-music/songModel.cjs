@@ -34,6 +34,10 @@ mongoose
         type: String,
         required: [true, "An artifact (or artifact creature). An important object, imbued with magical, cultural, or other significance. The One Ring? Davey Crockett's crock-ring? Doesn't even have to be a ring. Just has to be something. "]
     },
+
+    image: {
+        type: String,
+    },
     
     created: {
         type: Date,

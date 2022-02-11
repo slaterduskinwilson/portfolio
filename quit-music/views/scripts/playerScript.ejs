@@ -3,10 +3,11 @@ console.log('loaded music player script.js')
 
 let fullTrackList = <%- JSON.stringify(songs) %>
 
-console.table(fullTrackList)
+// console.table(fullTrackList)
 
 
 let trackName = document.querySelector('.trackName')
+let trackArt = document.querySelector('.trackArt')
 
 let volumeSlider = document.querySelector('.volumeSlider')
 volumeSlider.addEventListener('input', setVolume)
@@ -83,6 +84,9 @@ function loadTrack(trackIndexNumber, playCallback, resetCallback) {
 
     trackName.innerHTML =  `<h2>Now playing: "${fullTrackList[trackIndexNumber].title}"</h2>`
     //display songname of the track we're currently playing!
+    trackArt.src = fullTrackList[trackIndexNumber].image ? fullTrackList[trackIndexNumber].image : 'https://thecomicscomic.com/wp-content/uploads/2011/09/chrismeloni-gene-wethot-585x315.jpg' 
+    // trackArt.src = fullTrackList[trackIndexNumber].image
+    //if there's track art, display that image. otherwise? Chris Meloni.
 
  // move to the next track if the current one finishes playing, using the "ended" event
     currentTrack.addEventListener('ended', nextTrack)
