@@ -85,12 +85,11 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/home', isLoggedIn, async (req, res) => {
-    //add
     //we need to wrap this route function in ASYNC, because we have asyncronous mongoose calls that need to resolve before we pass our data to the html
 
     const fuckItPlaylist = []
 
-    const getAllSongs = require('./getAllSongs.cjs')(fuckItPlaylist)
+    const getAllSongs = await require('./getAllSongs.cjs')(fuckItPlaylist)
     //require IS a function, so we need to run it right out the gate, passing in our empty array, which this function will populate. This is why we need to define the fuckItPlaylist array in THIS scope, as opposed to in the module file!
 
     const superheroes = await SongModel.find()
@@ -126,7 +125,7 @@ app.get('/search', isLoggedIn, async (req, res) => {
     // console.log(req.query.search)
 
     const fuckItPlaylist = []
-    const getAllSongs = require('./getAllSongs.cjs')(fuckItPlaylist)
+    const getAllSongs = await require('./getAllSongs.cjs')(fuckItPlaylist)
     const searchString = req.query.search
 
     const searchResults = await SongModel.find({

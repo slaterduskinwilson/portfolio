@@ -8,7 +8,7 @@ const SongModel = require('./songModel.cjs')
 
 
 // await SongModel.updateMany({}, {deleted: false})
-//the above line is how i set the deleted flag to true for my entire collection. nifty!
+//the above line is how i reset the deleted flag for my entire collection. nifty!
 
 
 SongModel.find({deleted: false}, function (err, data) {
@@ -44,11 +44,6 @@ SongModel.find({deleted: false}, function (err, data) {
 }).lean()
 //soooo.... if you use find().lean() it'll return a "leaner", actual Javascript object, as opposed to an item of the Mongoose Document class! wow!
 
-// process.env.GOOGLE_APPLICATION_CREDENTIALS =
-//     'turing-clover-329717-aeb59f9c7c52.json'
-
-    
-
 const quitMusic = 'quit-music'
 //this is the bucket name
 
@@ -58,14 +53,6 @@ const storage = new Storage()
 const bucket = storage.bucket('quit-music')
 
 const [files] = await storage.bucket(quitMusic).getFiles()
-// let bucketPlaylist = []
-// files.forEach(file => {
-//     bucketPlaylist.push(file)
-
-// })
-
-// console.log(`bucket playlist: ${Object.keys(bucketPlaylist[0])}`)
-//this gives us a peek at the structure of our file object
 
 }
 
