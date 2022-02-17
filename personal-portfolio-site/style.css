@@ -6,3 +6,14 @@
   color: #2c3e50;
   margin-top: 60px;
 } */
+
+
+.dg.main.a {
+  /* this is the dat.gui display */
+  display: none;
+}
+
+.dg.main.a.show {
+  /* this is when we click out gui-button button to add the .show class! */
+  display: block;
+}

@@ -1,9 +1,5 @@
 // https://www.youtube.com/watch?v=YK1Sw_hnm58
 
-//ok! we're at 2:17, next step is HTML and CSS
-
-//but for now: time to go to work at the feed store.
-
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
@@ -16,10 +12,10 @@ import gsap from 'gsap'
 const gui = new dat.GUI()
 const world = {
     plane: {
-        width: 22,
-        height: 1,
+        width: 441,
+        height: 106,
         widthSegments: 200,
-        heightSegments: 1, 
+        heightSegments: 150, 
         
     },
 
@@ -29,6 +25,14 @@ const world = {
         trail: '#ff0067'
     }
     
+}
+
+
+    const theme2 = {
+    shape: '#2672e8',
+        hover: '#4bd9ef',
+        trail: '#04154f'
+
 }
 //try 22, 1, 200, and 1?
 
@@ -181,9 +185,9 @@ document.body.appendChild(renderer.domElement)
 
 //let's position our camera somewhere cool:
 //  { x: 0.058991773097945004, y: -6.384716906143697, z: -3.9242363137500984 }
-camera.position.x = 0.058991773097945004
-camera.position.y = -6.384716906143697
-camera.position.z = -3.9242363137500
+camera.position.x = 0.0015
+camera.position.y = -18
+camera.position.z = -3.013
 
 // camera.position.z = 50
 //this moves our camera back, so we can see our plane!
@@ -195,6 +199,39 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // controls.addEventListener('change', event => {
 //     console.log('camera position from orbitcontrols: ', controls.object.position)
 // }) //this will log our our camera position, whenever we manipulate the orbit controls, so we can plug that value back in wherever we want! YES!
+
+
+//let's make a PLANET!
+// const sphereGeometry = new THREE.SphereGeometry();
+// const sphereMaterial = new THREE.MeshPhongMaterial()
+// const planet = new THREE.mesh(sphereGeometry, sphereMaterial);
+// scene.add(planet)
+
+const jupiterTexture = new THREE.TextureLoader().load('./jupiter.jpg')
+// we're also gonna ad  a "normal map", which is a weird colored image that gives the appearance of texture
+// const normalTexture = new THREE.TextureLoader().load('../normal.png')
+const jupiter = new THREE.Mesh(
+    new THREE.SphereGeometry(2, 64, 64),
+    new THREE.MeshStandardMaterial({
+        map: jupiterTexture,
+        // normalMap: normalTexture
+    })
+)
+scene.add(jupiter)
+// jupiter.position.z = 30
+// jupiter.position.setX(-10)
+jupiter.position.setY(40)
+jupiter.position.setZ(-5)
+jupiter.position.setX(-22)
+jupiter.rotateX(-10)
+jupiter.rotateZ(8.9)
+
+
+// 
+// 
+// 
+
+
 
 
 const geometry = new THREE.PlaneGeometry(world.plane.width, world.plane.height, world.plane.widthSegments, world.plane.heightSegments) //width, height, width segments, height segments
@@ -365,7 +402,23 @@ function animate() {
             }
         })
     }
+
+    // JUPITER ANIMATION
+    jupiter.position.x += 0.01
+    jupiter.position.y -= 0.02
+    // jupiter.rotateX(0.002)
+    jupiter.rotateY(0.002)
+
+    camera.position.y += 0.01
+
+    mesh.rotateX(0.00001)
+    
+
+    console.log(`camera position x: ${camera.position.x} , y: ${camera.position.y}, z: ${camera.position.z}`)
 }
+// end of animate function
+
+
 const mouse = {
     //we're creating a mouse object, and we're gonna set its x and y properties to be the mouse's position in the browser window, every time we move the mouse
     x: undefined,
@@ -390,6 +443,16 @@ addEventListener('mousemove', event => {
 
 const otherButton = document.getElementById('other-button')
 
+const guiBox = document.querySelector('.dg.main.a')
+const guiButton = document.querySelector('#gui-button')
+
+console.log(guiButton)
+
+guiButton.addEventListener('click', () => {
+    console.log('did it')
+    return guiBox.classList.toggle('show')
+})
+
 
 // function moveCameraRightQuick () {
     
@@ -400,15 +463,15 @@ const otherButton = document.getElementById('other-button')
     
 // }
 
-function stretchItOut() {
-    console.log(world)
-    world.plane.height = 100
+
+function changeColorTheme() {
+    world.colors = theme2
     generatePlane()
 }
 
-otherButton.addEventListener('click', () => {
-    //we could pass "event" to the arrow function, and to the moveCameraRightQuick function if we wanted to!
-    // moveCameraRightQuick()
 
-    stretchItOut()
+otherButton.addEventListener('click', () => {
+
+    changeColorTheme()
+
 })
