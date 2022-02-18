@@ -36,15 +36,20 @@
                 style="top: 50%; transform: translate(-50%, -50%); left: 50%"
             >
                 <!-- inline style contains the old-school trick for centering a div... cumbersome -->
-                <h1 class="font-creepster text-9xl tracking-wide">Matthew Wilson</h1>
-                <p class="font-pixel text-5xl">This guy's about to...</p>
+                <h1 class="font-creepster text-9xl tracking-wide" >Matthew Wilson</h1>
+                <p class="font-pixel text-5xl" contenteditable="true">This guy's about to...</p>
 
                 <!-- anchor tags have a default class of inline in tailwind, so if we want all our style to happen we need to specify that it's inline-block instead -->
-                <a href="http://svu-soundboard.web.app" target="_blank" rel="noopener noreferrer" class="inline-block font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-10 hover:bg-white hover:text-gray-800">View Portfolio</a>
-                
-                <button id="other-button" class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-10 hover:bg-white hover:text-gray-800">Do Other Thing!</button>
 
-                <button id="gui-button" class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-10 hover:bg-white hover:text-gray-800">Edit The Shape!</button>
+                <nav class="the-buttons flex flex-col w-1/2 m-auto">
+                    <a href="http://svu-soundboard.web.app" target="_blank" rel="noopener noreferrer" class="inline-block font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800">View Portfolio</a>
+                
+                    <button id="other-button" class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800">Do Other Thing!</button>
+    
+                    <button id="gui-button" class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800">Edit The Shape!</button>
+
+                </nav>
+               
             </div>
         </div>
 

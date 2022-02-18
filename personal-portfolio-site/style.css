@@ -17,3 +17,9 @@
   /* this is when we click out gui-button button to add the .show class! */
   display: block;
 }
+
+/* .the-buttons {
+  display: flex;
+  flex-direction: column;
+} */
+/* i'm gonna put this line in tailwind instead */

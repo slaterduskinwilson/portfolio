@@ -3,11 +3,8 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-// console.log(OrbitControls)
 import * as dat from 'dat.gui'
-// console.log(dat)
 import gsap from 'gsap'
-// console.log(gsap)
 
 const gui = new dat.GUI()
 const world = {
@@ -27,23 +24,71 @@ const world = {
     
 }
 
+let currentTheme = 0
 
-    const theme2 = {
-    shape: '#2672e8',
-        hover: '#4bd9ef',
-        trail: '#04154f'
+const themes = [
+    {
+        shape: '#92a32b',
+        hover: '#1AE0C8',
+        trail: '#ff0067'
+    },
 
-}
-//try 22, 1, 200, and 1?
+    {shape: '#2672e8',
+    hover: '#4bd9ef',
+    trail: '#04154f'},
+
+    {shape: '#fdfffb',
+    hover: '#f9e842',
+    trail: '#6b0091'},
+
+    {shape: '#a32b64',
+    hover: '#ebed44',
+    trail: '#56f4ff'}
+
+]
+
+let currentMove = 0
+//we need to remember to increment our index AFTER we've animated, so we don't skip the first move in the list
+
+const cameraMoves = [
+    {
+        position: {
+            x: -0.5,
+    y: 4,
+    z: -53
+        },
+        rotation: {
+            x: 3.11,
+            y: 0,
+            z: -3.14
+        }
+    },
+
+    {
+        position: {
+            x: 16.25,
+    y: 10,
+    z: -8.3
+        },
+        rotation: {
+            x: 3.03,
+            y: 1.092,
+            z: 3.049
+        }
+    },
+
+    {
+        position: {
+            x: 0.00156 , y: -12, z: -3.013
+        },
+        rotation: {
+            x: 1.736, y: 0, z: -3.14
+        }
+    },
 
 
-//i like these values a little better:
-// plane: {
-//     width: 6,
-//     height: 50,
-//     widthSegments: 139,
-//     heightSegments: 126
-// }
+]
+
 
 //gui.add takes 4 arguments: the object you're manipulating, the property of that object you're manipulating, and the min and max values you want to put on the manipulation slider!
 gui.add(world.plane, 'width', 1, 500).onChange(generatePlane)
@@ -52,16 +97,6 @@ gui.add(world.plane, 'height', 1, 500).onChange(generatePlane)
 gui.add(world.plane, 'widthSegments', 1, 200).onChange(generatePlane)
 gui.add(world.plane, 'heightSegments', 1, 200).onChange(generatePlane)
 // gui.add(world.plane, 'red', 0, 1).onChange(generatePlane)
-// gui.add(world.plane, 'green', 0, 1).onChange(generatePlane)
-// gui.add(world.plane, 'blue', 0, 1).onChange(generatePlane)
-// gui.add(world.hover, 'red', 0, 1).name('hover red').onChange(generatePlane)
-// gui.add(world.hover, 'green', 0, 1).name('hover green').onChange(generatePlane)
-// gui.add(world.hover, 'blue', 0, 1).name('hover blue').onChange(generatePlane)
-// gui.add(world.trail, 'red', 0, 1).name('trail red').onChange(generatePlane)
-// gui.add(world.trail, 'green', 0, 1).name('trail green').onChange(generatePlane)
-// gui.add(world.trail, 'blue', 0, 1).name('trail blue').onChange(generatePlane)
-
-
 
 gui.addColor(world.colors, 'shape').name('shape color').onChange(generatePlane)
 gui.addColor(world.colors, 'hover').name('hover color').onChange(generatePlane)
@@ -415,6 +450,7 @@ function animate() {
     
 
     console.log(`camera position x: ${camera.position.x} , y: ${camera.position.y}, z: ${camera.position.z}`)
+    console.log(camera.rotation)
 }
 // end of animate function
 
@@ -435,7 +471,6 @@ addEventListener('mousemove', event => {
     //spoiler alert: this math gives us normalized coordinates, with x= 0 in the middle of the screen, and values of -1 and +1 at either edge of the window
     mouse.y = -(event.clientY / innerHeight) * 2 + 1
     //we need to reverse the math we did for x, because the browser gives us negative values of y as we go up, but THREE wants positive values for y as we go up, like in regular, sensical math.
-
     // console.log(mouse)
 
     //awesome! now we have normalized mouse coordinates!
@@ -446,32 +481,71 @@ const otherButton = document.getElementById('other-button')
 const guiBox = document.querySelector('.dg.main.a')
 const guiButton = document.querySelector('#gui-button')
 
-console.log(guiButton)
-
 guiButton.addEventListener('click', () => {
-    console.log('did it')
     return guiBox.classList.toggle('show')
 })
 
 
-// function moveCameraRightQuick () {
-    
-//     gsap.to(camera.position, {duration:10, z: -10 })
-// //  console.log(controls.target)
-//     // console.log(camera.position)
-//     //yes!!!!
-    
-// }
 
 
-function changeColorTheme() {
-    world.colors = theme2
-    generatePlane()
+function moveCameraRightQuick (position, rotation) {
+    //let's make this function take two objects: one for position, one for rotation
+    //animate camera position to x,y, and z values determine by the position object we pass in
+    gsap.to(camera.position, {duration:10, x: position.x})
+    gsap.to(camera.position, {duration:10, y: position.y})
+    gsap.to(camera.position, {duration:10, z: position.z})
+//  console.log(controls.target)
+    // console.log(camera.position)
+    //yes!!!!
+
+    //similarly, animate camera rotation according to x,y, and z values in the rotation argument
+    gsap.to(camera.rotation, {duration:10, x: rotation.x})
+    gsap.to(camera.rotation, {duration:10, y: rotation.y})
+    gsap.to(camera.rotation, {duration:10, z: rotation.z})
+  
+
+
 }
 
 
+function changeColorTheme() {
+    currentTheme ++
+    if (currentTheme === (themes.length)) {
+        currentTheme = 0
+        //if after incrementing, our number is higher than the length of our themes list, go back to the first theme
+    }
+    world.colors = themes[currentTheme]
+    generatePlane()
+}
+
+const cameraPosition = {
+    x: -0.5,
+    y: 4,
+    z: -53
+
+}
+
+const cameraRotation = {
+    x: 3.11,
+    y: 0,
+    z: -3.14
+}
+
 otherButton.addEventListener('click', () => {
+    let moves = cameraMoves[currentMove]
+    //currentMove is defined at the very top, initialized to 0
+    let {position, rotation} = moves
+    //destructure the object in the cameraMoves array at the index of currentMove, which has keys of position and rotation, each of which has a value that's an object itself with x, y, z properties
 
     changeColorTheme()
+    moveCameraRightQuick(position, rotation)
+
+    currentMove ++
+    if (currentMove === cameraMoves.length) {
+        currentMove = 0
+        
+    }
+        
+    
 
 })
