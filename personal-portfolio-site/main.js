@@ -3,7 +3,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 console.log(GLTFLoader)
 import * as dat from 'dat.gui'
 import gsap from 'gsap'
@@ -11,8 +11,8 @@ import gsap from 'gsap'
 const gui = new dat.GUI()
 const world = {
     plane: {
-        width: 441,
-        height: 106,
+        width: 86,
+        height: 292,
         widthSegments: 200,
         heightSegments: 150
     },
@@ -33,7 +33,7 @@ const themes = [
         trail: '#ff0067'
     },
 
-    { shape: '#2672e8', hover: '#4bd9ef', trail: '#04154f' },
+    { shape: '#2672e8', hover: '#4bd9ef', trail: '#adadad' },
 
     { shape: '#fdfffb', hover: '#f9e842', trail: '#6b0091' },
 
@@ -80,6 +80,15 @@ const cameraMoves = [
             x: 1.736,
             y: 0,
             z: -3.14
+        }
+    },
+
+    {
+        position: {
+            x: -0.04301093802784941 , y: 28.448426915157665, z: -7.447806296223387
+        },
+        rotation: {
+            x: -1.8435210815291905, y: -0.0015555272486780874, z: -3.1360311770623106
         }
     }
 ]
@@ -262,21 +271,24 @@ let tieFighter
 //declare it first, so we can assign the loaded object to it
 
 const loader = new GLTFLoader()
-loader.load('tieFighter.glb', function (gltf) {
-    tieFighter = gltf.scene
-    scene.add(tieFighter)
-    tieFighter.position.setY(60)
-tieFighter.position.setZ(-5)
-tieFighter.position.setX(22)
-tieFighter.rotateX(-1.5)
-tieFighter.rotateY(-2)
-}, function ( xhr ) {
-
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-}, function (error) {
-    console.error(error)
-})
+loader.load(
+    'tieFighter.glb',
+    function (gltf) {
+        tieFighter = gltf.scene
+        scene.add(tieFighter)
+        tieFighter.position.setY(60)
+        tieFighter.position.setZ(-5)
+        tieFighter.position.setX(22)
+        tieFighter.rotateX(-1.5)
+        tieFighter.rotateY(-2)
+    },
+    function (xhr) {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+    function (error) {
+        console.error(error)
+    }
+)
 
 const geometry = new THREE.PlaneGeometry(
     world.plane.width,
@@ -464,7 +476,7 @@ function animate() {
     // console.log(
     //     `camera position x: ${camera.position.x} , y: ${camera.position.y}, z: ${camera.position.z}`
     // )
-    // console.log(camera.rotation)
+    // console.log('camera rotation: ', camera.rotation)
 
     //TIE ANIMATION
     if (tieFighter) {
@@ -475,14 +487,11 @@ function animate() {
         if (tieFighter.position.x < -100) {
             //if the tie fighter flies off the screen, plop it back to its original position
             tieFighter.position.setY(60)
-    tieFighter.position.setZ(-5)
-    tieFighter.position.setX(22)
-    tieFighter.rotateX(-1.5)
-            
+            tieFighter.position.setZ(-5)
+            tieFighter.position.setX(22)
+            tieFighter.rotateX(-1.5)
         }
-        
     }
-    
 }
 // end of animate function
 
@@ -509,12 +518,12 @@ addEventListener('mousemove', event => {
 
 const otherButton = document.getElementById('other-button')
 
-const guiBox = document.querySelector('.dg.main.a')
-const guiButton = document.querySelector('#gui-button')
+// const guiBox = document.querySelector('.dg.main.a')
+// const guiButton = document.querySelector('#gui-button')
 
-guiButton.addEventListener('click', () => {
-    return guiBox.classList.toggle('show')
-})
+// guiButton.addEventListener('click', () => {
+//     return guiBox.classList.toggle('show')
+// })
 
 function moveCameraRightQuick(position, rotation) {
     //let's make this function take two objects: one for position, one for rotation
