@@ -46,6 +46,16 @@ let currentMove = 0
 const cameraMoves = [
     {
         position: {
+            x: 0.01 , y: -101.51, z: -21.15
+        },
+        rotation: {
+            x: 1.79,
+            y: 0,
+            z: -3.14
+        }
+    },
+    {
+        position: {
             x: -0.5,
             y: 4,
             z: -53
@@ -56,7 +66,8 @@ const cameraMoves = [
             z: -3.14
         }
     },
-
+    //x: 0.006639061713842827 , y: -76.84965623151145, z: -13.335661962538065
+   
     {
         position: {
             x: 16.25,
@@ -473,10 +484,10 @@ function animate() {
 
     // mesh.rotateX(0.00001)
 
-    // console.log(
-    //     `camera position x: ${camera.position.x} , y: ${camera.position.y}, z: ${camera.position.z}`
-    // )
-    // console.log('camera rotation: ', camera.rotation)
+    console.log(
+        `camera position x: ${camera.position.x} , y: ${camera.position.y}, z: ${camera.position.z}`
+    )
+    console.log('camera rotation: ', camera.rotation)
 
     //TIE ANIMATION
     if (tieFighter) {
