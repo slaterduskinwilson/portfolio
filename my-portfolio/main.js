@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as dat from 'dat.gui'
 import gsap from 'gsap'
 
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 const world = {
     plane: {
         width: 86,
@@ -35,7 +35,7 @@ const themes = [
 
     { shape: '#2672e8', hover: '#4bd9ef', trail: '#adadad' },
 
-    { shape: '#fdfffb', hover: '#f9e842', trail: '#6b0091' },
+    { shape: '#999999', hover: '#f9e842', trail: '#6b0091' },
 
     { shape: '#a32b64', hover: '#ebed44', trail: '#56f4ff' }
 ]
@@ -104,17 +104,17 @@ const cameraMoves = [
     }
 ]
 
-//gui.add takes 4 arguments: the object you're manipulating, the property of that object you're manipulating, and the min and max values you want to put on the manipulation slider!
-gui.add(world.plane, 'width', 1, 500).onChange(generatePlane)
-//we've abstracted our long-ass height/width change duplicate code into one function: generatePlane, defined below!
-gui.add(world.plane, 'height', 1, 500).onChange(generatePlane)
-gui.add(world.plane, 'widthSegments', 1, 200).onChange(generatePlane)
-gui.add(world.plane, 'heightSegments', 1, 200).onChange(generatePlane)
-// gui.add(world.plane, 'red', 0, 1).onChange(generatePlane)
+// //gui.add takes 4 arguments: the object you're manipulating, the property of that object you're manipulating, and the min and max values you want to put on the manipulation slider!
+// gui.add(world.plane, 'width', 1, 500).onChange(generatePlane)
+// //we've abstracted our long-ass height/width change duplicate code into one function: generatePlane, defined below!
+// gui.add(world.plane, 'height', 1, 500).onChange(generatePlane)
+// gui.add(world.plane, 'widthSegments', 1, 200).onChange(generatePlane)
+// gui.add(world.plane, 'heightSegments', 1, 200).onChange(generatePlane)
+// // gui.add(world.plane, 'red', 0, 1).onChange(generatePlane)
 
-gui.addColor(world.colors, 'shape').name('shape color').onChange(generatePlane)
-gui.addColor(world.colors, 'hover').name('hover color').onChange(generatePlane)
-gui.addColor(world.colors, 'trail').name('trail color').onChange(generatePlane)
+// gui.addColor(world.colors, 'shape').name('shape color').onChange(generatePlane)
+// gui.addColor(world.colors, 'hover').name('hover color').onChange(generatePlane)
+// gui.addColor(world.colors, 'trail').name('trail color').onChange(generatePlane)
 
 function generatePlane() {
     mesh.geometry.dispose()
