@@ -252,6 +252,10 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // const planet = new THREE.mesh(sphereGeometry, sphereMaterial);
 // scene.add(planet)
 
+
+const spaceBackground = new THREE.TextureLoader().load('./jeremy-perkins-space.jpg')
+scene.background = spaceBackground
+
 const jupiterTexture = new THREE.TextureLoader().load('./jupiter.jpg')
 // we're also gonna ad  a "normal map", which is a weird colored image that gives the appearance of texture
 // const normalTexture = new THREE.TextureLoader().load('../normal.png')
