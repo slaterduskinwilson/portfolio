@@ -2,7 +2,6 @@
 
 //had to change the name of this file from auth.js to auth.cjs, as suggested by the helpful errors in the terminal, because my package.json file think we're using modules which are imported as opposed to required, and rather than risk breaking things, i changed up the file extension
 
-//also... the tutorial suggests using environment variables instead of specifying my sensitive data in this file, let's look into that later
 
 require('dotenv').config()
 

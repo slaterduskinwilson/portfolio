@@ -12,10 +12,9 @@ const logger = require('morgan')
 const chalk = require('chalk')
 const express = require('express')
 const fileUpload = require('express-fileupload')
-//new NPM package! apparently it makes uploading files easier?
 const session = require('express-session')
 const { nanoid } = require('nanoid')
-//nanoid generates unique ids! unfortunately, since we can't query Google Cloud by metadata... we're not using this feature currently
+
 
 const passport = require('passport')
 require('./auth.cjs')

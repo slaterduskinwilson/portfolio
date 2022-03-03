@@ -1,0 +1,74 @@
+
+<div class="musicPlayer">
+
+    <div class="trackDetails">
+        <div class="trackName"></div>
+        <!-- <div class="trackArt"></div> -->
+        <img src="" alt="track art" class="trackArt">
+    </div>
+    
+
+    <div class="sliders">
+
+    <div class="durationDisplay">
+        <div class="trackCurrentTime">00:00</div>
+        <!-- this is the slider for seeking thru the song -->
+        <input
+            type="range"
+            class="seekSlider"
+            min="1"
+            max="100"
+            value="0"
+            
+            name=""
+            id=""
+        />
+        <div class="trackDuration">00:00</div>
+    </div>
+    
+        <!-- here's the volume slider -->
+        <div class="volumeDisplay">
+            <!-- I had accidentally given the class volumeSlider to both the div and the input. I changed the div to volumeDisplay, not sure if I'm gonna use it for anything -->
+           
+            <i class="fas fa-volume-down"></i>
+            <!-- volume down icon, isn't clickable, it's just to label the ends of the slider -->
+    
+            <input
+                type="range"
+                class="volumeSlider"
+                min="1"
+                max="100"
+                value="100"
+                
+                name=""
+                id=""
+            />
+            <i class="fas fa-volume-up"></i>
+            <!-- volume up icon -->
+        </div>
+    </div>
+        
+    
+        <div class="theButtons">
+            <button>
+                <div class="previousButton">
+                    <i class="fas fa-fast-backward"></i>
+                </div>
+            </button>
+    
+            <button>
+                <div class="playButton">
+                    <i class="fas fa-fighter-jet"></i>
+                </div>
+            </button>
+    
+            <button>
+                <div class="nextButton">
+                    <i class="fas fa-fast-forward"></i>
+                </div>
+            </button>
+        </div>
+    
+     
+    </div>
+    

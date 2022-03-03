@@ -1,0 +1,67 @@
+    //let's make a script to update the song fields FROM THE PLAYLIST!
+
+
+    let playlistFields = document.querySelectorAll('.playlist-field')
+    playlistFields = [...playlistFields]
+    playlistFields.forEach( element => {
+            element.addEventListener('click', (e) => {
+                
+               showHideField(e.target)
+            })
+    }
+    )
+
+
+    function showHideField(element) {
+        //show and hide our link when you click it by changing the css class... 
+        //NOTE: when these elements are set to display:none, there's nothing to click on to bring them back....
+        
+        //this is the location in the DOM where we're gonna stick our form
+        let parentElement = element.parentElement;
+
+        //create a form that has a text input
+        let formElement = document.createElement('form');
+        formElement.action = '/update'
+        formElement.method = 'POST';
+        
+
+        let textInputBox = document.createElement('input')
+        textInputBox.type = 'text'
+        textInputBox.id = 'data-to-modify'
+        textInputBox.placeholder = 'change this value:'
+        textInputBox.name = 'dataValue'
+
+        let hiddenInputCloudFileName = document.createElement('input')
+        hiddenInputCloudFileName.type = 'hidden'
+        hiddenInputCloudFileName.name = 'cloudFileName'
+        hiddenInputCloudFileName.value = parentElement.id
+
+        let hiddenInputDataType = document.createElement('input')
+        hiddenInputDataType.type = 'hidden'
+        hiddenInputDataType.name = 'dataType'
+        hiddenInputDataType.value = element.dataset.type
+        
+        
+        
+        formElement.appendChild(textInputBox);
+        formElement.appendChild(hiddenInputCloudFileName);
+        formElement.appendChild(hiddenInputDataType);
+
+        
+
+        
+
+        
+
+        
+        // console.log(textInputBox)
+        // console.log('this is the element you clicked on and is now hidden: ', element)
+        if (element.classList.contains('hidden')) {
+            element.classList.remove('hidden')
+        } else {
+            element.classList.add('hidden')
+            parentElement.insertBefore(formElement, element)
+        }
+        
+        
+    }

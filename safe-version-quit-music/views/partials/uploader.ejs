@@ -1,0 +1,18 @@
+<div class="uploader">
+  <h3>Upload a song</h3>
+    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+        <!-- we need enctype="multipart/form-data" if the form is going to upload files -->
+        <label for="myfile">Select file:</label>
+        <input type="file" id="myfile" name="myfile" accept="audio/mpeg" required><br><br>
+        <!-- the above line is attempting to restrict acceptable files to anything audio, with any audio extension. might need to limit this to mp3, let's play arouynd -->
+        <input type="text" name="songname" id="songname" placeholder="song name:" required>
+        <input type="text" name="superhero" id="superhero" placeholder="superhero:" required>
+        <input type="text" name="planet" id="planet" placeholder="planet:" required>
+        <input type="text" name="beatle" id="beatle" placeholder="beatle:" required>
+        <input type="text" name="artifact" id="artifact" placeholder="artifact:" required>
+        <input type="text" name="image" id="image" placeholder="image url (not required)">
+        <input type="submit" value="Do it, Rockapella!">
+      </form>
+</div>
+
+

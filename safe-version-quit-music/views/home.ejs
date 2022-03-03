@@ -1,0 +1,36 @@
+<%- include('partials/head.ejs') %> 
+
+<div class="title">
+
+
+<h1>Quit Music, Go Back to School</h1>
+<p>A realistic music app. </p>
+<p>Brought to you by <a href="https://soundcloud.com/hardmikeandthelemonades" target="_blank" rel="noopener noreferrer">Hard Mike and the Lemonades.</a></p>
+</div>
+<br>
+<a href="/logout"><h6>Log out</h6></a>
+
+<div class="player-search">
+
+    <%- include('partials/searchBar.ejs') %> 
+    <%- include('partials/player.ejs') %> 
+    <%- include('partials/playlist.ejs') %> 
+</div>
+
+<%- include('partials/uploader.ejs') %> 
+
+   
+
+
+<script>
+<%- include('./scripts/updateSongs.ejs') %> 
+</script>
+   
+
+<script>
+    <%- include('./scripts/playerScript.ejs') %> 
+</script>
+        
+  
+</body>
+</html>

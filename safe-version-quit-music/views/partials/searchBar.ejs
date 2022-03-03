@@ -1,0 +1,51 @@
+<!-- set up a form with a search bar to look for song titles, but also a dropdown with possible mongo data values for each mongo key! -->
+<div id="search-filter">
+<form action="/search" method="get">
+<label for="search"> <h3>Search song titles:</h3> </label>
+    <input type="text" name="search" id="search" placeholder='If no results return, hit "refresh"'>
+    <input type="submit" value="SEARCH!">
+</form>
+
+
+<form action="/filter" method="get">
+    <h3>Or select another filter:</h3>
+    <br>
+
+    <select name="superhero" id="superhero-options" onchange="this.form.submit()">
+        <option selected disabled hidden>Filter by Superhero</option>
+        <% superheroes.forEach(superhero => { %>
+            <option value="<%= superhero %>"><%= superhero %></option>
+        <% }) %>
+    </select>
+</form>
+
+<form action="/filter" method="get">
+
+    <select name="planet" id="planet-options" onchange="this.form.submit()">
+        <option selected disabled hidden>Filter by Planet</option>
+        <% planets.forEach(planet => { %>
+            <option value="<%= planet %>" ><%= planet %></option>
+        <% }) %>
+    </select>
+</form>
+
+<form action="/filter" method="get">
+
+    <select name="beatle" id="beatle-options" onchange="this.form.submit()">
+        <option selected disabled hidden>Filter by Beatle</option>
+        <% beatles.forEach(beatle => { %>
+            <option value="<%= beatle %>"><%= beatle %></option>
+        <% }) %>
+    </select>
+</form>
+
+<form action="/filter" method="get">
+    <select name="artifact" id="artifact-options" onchange="this.form.submit()">
+        <option selected disabled hidden>Filter by Artifact</option>
+        <% artifacts.forEach(artifact => { %>
+            <option value="<%= artifact %>"><%= artifact %></option>
+        <% }) %>
+    </select>
+</form>
+
+</div>

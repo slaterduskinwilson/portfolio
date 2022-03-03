@@ -1,0 +1,28 @@
+<%- include('partials/head.ejs') %> 
+
+<a href="/home"><h1>Take me back home, please</h1></a>
+<br>
+<a href="/logout"><h6>Log out</h6></a>
+
+
+
+<%- include('partials/player.ejs') %> 
+
+<h4>AND HERE ARE THE SONGS THAT MATCH YOUR SEARCH:</h4>
+
+<%- include('partials/playlist.ejs') %> 
+
+   
+     
+<script>
+   <%- include('./scripts/updateSongs.ejs') %> 
+   </script>
+      
+   
+   <script>
+       <%- include('./scripts/playerScript.ejs') %> 
+   </script>
+           
+
+</body>
+</html>
