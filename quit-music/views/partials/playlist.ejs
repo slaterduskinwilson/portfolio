@@ -1,21 +1,28 @@
 
 <div class="playlist">
+ 
     <h3 class="playlist-heading">Playlist:</h3>
     
     <div class="playlist-content">
 
 <% songs.forEach( (song, index) => { %>
 
-    <div id="<%= song.cloudFileName %>" class="playlist-row">
-    <h3 class="playlist-field playlist-title" data-type="title" data-modify="<%= song.title %>"><%=`${index + 1}. ${song.title}`%> </h3> 
-    <h6 class="playlist-field playlist-superhero" data-type="superhero" data-modify="<%= song.superhero%>"><%= song.superhero %> </h6> 
-    <h6 class="playlist-field playlist-planet" data-type="planet" data-modify="<%= song.planet %>"><%= song.planet %> </h6> 
-    <h6 class="playlist-field playlist-beatle" data-type="beatle" data-modify="<%= song.beatle %>"><%= song.beatle %> </h6> 
-    <h6 class="playlist-field playlist-artifact" data-type="artifact" data-modify="<%= song.artifact %>"><%= song.artifact %> </h6> 
-  
-    <br>
+<div id="<%= song.cloudFileName %>" class="playlist-row">
 
-    <!-- below, we have a delete form. It sends the cloudFileName of the song in question via a hidden input -->
+    <div class="playlist-title-section">
+    <div class="playlist-title" >
+    <h3 data-type="title" data-modify="<%= song.title %>"><%=`${index + 1}. ${song.title}`%> </h3> 
+</div>
+</div>
+
+<div class="playlist-buttons-section">
+
+    <div class="playlist-buttons">
+        <button class="playthistrack"  id="<%= song.cloudFileName%>" data-index='<%= index %>' onclick="loadAndPlayTrack(dataset.index)">Play This Track</button>
+    <!-- when we click this button, we want the playerscript to load the music file as the source of our single audio element, so we can play it -->
+    
+    <!-- note: we're pulling the loadTrack(trackindex) function from our playerscript.ejs file! No need to define it separately in playlist.ejs-->
+
         <form action="/delete" method="post">
             <div class="areyousure hidden">
                 <h1>ARE YOU SURE YOU WANT TO DELETE <%= song.title %>?! </h1>
@@ -29,16 +36,34 @@
                 
         </form>
      
+    </div>
+
+
     
-    
-    
-    <button class="playthistrack"  id="<%= song.cloudFileName%>" data-index='<%= index %>' onclick="loadAndPlayTrack(dataset.index)">Play This Track</button>
-    <!-- when we click this button, we want the playerscript to load the music file as the source of our single audio element, so we can play it -->
-    
-    <!-- note: we're pulling the loadTrack(trackindex) function from our playerscript.ejs file! No need to define it separately in playlist.ejs-->
+  
+</div>
+
+<div class="playlist-fields-section">
+    <div class="playlist-fields">
+
    
+        <p class="playlist-field playlist-superhero" data-type="superhero" data-modify="<%= song.superhero%>"><%= song.superhero %> </p> 
+        <p class="playlist-field playlist-planet" data-type="planet" data-modify="<%= song.planet %>"><%= song.planet %> </p> 
+        <p class="playlist-field playlist-beatle" data-type="beatle" data-modify="<%= song.beatle %>"><%= song.beatle %> </p> 
+        <p class="playlist-field playlist-artifact" data-type="artifact" data-modify="<%= song.artifact %>"><%= song.artifact %> </p> 
+    </div>
 </div>
+
+
+</div>
+
+    <!-- below, we have a delete form. It sends the cloudFileName of the song in question via a hidden input -->
+    
+   
+
     <% }) %>
+
 </div>
+
 </div>
     

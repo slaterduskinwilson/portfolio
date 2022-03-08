@@ -7,20 +7,23 @@
 </form>
 
 
+<h3>Or select another filter:</h3>
+<br>
+
 <form action="/filter" method="get">
-    <h3>Or select another filter:</h3>
-    <br>
+    <label for="superhero-options">Superhero</label>
+   
 
     <select name="superhero" id="superhero-options" onchange="this.form.submit()">
         <option selected disabled hidden>Filter by Superhero</option>
         <% superheroes.forEach(superhero => { %>
             <option value="<%= superhero %>"><%= superhero %></option>
-        <% }) %>
-    </select>
-</form>
+            <% }) %>
+        </select>
+    </form>
 
 <form action="/filter" method="get">
-
+    <label for="planet-options">Planet</label>
     <select name="planet" id="planet-options" onchange="this.form.submit()">
         <option selected disabled hidden>Filter by Planet</option>
         <% planets.forEach(planet => { %>
@@ -30,7 +33,7 @@
 </form>
 
 <form action="/filter" method="get">
-
+    <label for="beatle-options">Beatle</label>
     <select name="beatle" id="beatle-options" onchange="this.form.submit()">
         <option selected disabled hidden>Filter by Beatle</option>
         <% beatles.forEach(beatle => { %>
@@ -40,6 +43,7 @@
 </form>
 
 <form action="/filter" method="get">
+    <label for="artifact-options">Artifact</label>
     <select name="artifact" id="artifact-options" onchange="this.form.submit()">
         <option selected disabled hidden>Filter by Artifact</option>
         <% artifacts.forEach(artifact => { %>

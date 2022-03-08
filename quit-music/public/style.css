@@ -1,11 +1,12 @@
 :root {
   /* defining variables to use as colors */
-  --pink: rgb(194, 45, 107);
-  --red: #ff2a6b;
-  --yellow: rgb(226, 198, 74);
+  --pink: rgb(255, 140, 211);
+  --red: #f72c69;
+  --yellow: rgb(250, 239, 191);
 
-  --blue: rgb(1, 154, 165);
-  --green: rgb(32, 235, 32);
+  --blue: rgb(37, 134, 163);
+  --green: rgb(248, 255, 244);
+  --cream: #fdebc8;
 
   /* h1 color: #ff2a6b */
   /* body background background-color: #fcbf4e; */
@@ -23,12 +24,12 @@
 }
 
 body {
-    background-color: #fcbf4e;
+    background-color:var(--cream);
     font-family: 'Azeret Mono', monospace;
     /* from google fonts */
    
     overflow-x: hidden;
-    /* padding: 5%; */
+    /* padding: 15%; */
 
     /* display: flex;
   flex-direction: column;
@@ -36,18 +37,77 @@ body {
   justify-content: center;
   margin: auto; */
 }
+
+h1{
+  color: var(--red);
+  text-shadow: 2px 1px 1px black;
+  font-size: 2.5rem;
+
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--red);
+  text-shadow: 2px 1px 1px black;
+  font-size: 2rem;
+}
+
 .title {
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2% 0 3%;
+  margin: 0 0 3%;
+  background-color: var(--blue);
+  
+  padding: 3%;
+}
+
+.title h1, .title h3, .title p {
+  margin: 2%;
+  color: var(--green);
 }
 
 .title p {
-  margin: 1%;
+  font-weight: bold;
 }
+
+.title h6 {
+  margin-bottom: 5%;
+}
+
+.explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  margin-top: 3%;
+  background-color: var(--red);
+  color: var(--green);
+}
+
+.explanation p {
+  color: black;
+  font-weight: bold;
+}
+
+.explanation button {
+  padding: 6%;
+  margin: 2%;
+  min-width: max-content;
+  background-color: var(--yellow);
+  font-size: 1.25rem;
+  cursor: pointer;
+
+}
+
+.explanation button:hover {
+  border: 2px black solid;
+  padding-left: 7%;
+  padding-top: 7%;
+}
+
 
 .headline {
   display: flex;
@@ -60,9 +120,7 @@ body {
 }
 
 
-h1, h2, h3, h4, h5 {
-    color: var(--red);
-}
+
 
 .player-search {
   display: flex;
@@ -110,6 +168,7 @@ h1, h2, h3, h4, h5 {
 
 .musicPlayer {
     /* height: 40%; */
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -154,8 +213,8 @@ h1, h2, h3, h4, h5 {
     border-color: var(--red);
     outline: none;
     background-color: var(--red);
-    color: rgb(122, 234, 238);
-    text-shadow: 2px 1px 1px var(--yellow);
+    color: var(--green);
+    /* text-shadow: 2px 1px 1px var(--yellow); */
 }
 
 .sliders {
@@ -341,8 +400,8 @@ h1, h2, h3, h4, h5 {
   
   /* Set a style for the submit/login button */
   .form-container .btn {
-    background-color: #04AA6D;
-    color: white;
+    background-color: #7affce;
+    color: rgb(184, 184, 184);
     padding: 16px 20px;
     border: none;
     cursor: pointer;
@@ -362,34 +421,36 @@ h1, h2, h3, h4, h5 {
   }
 
   .playlist-heading {
-    color: var(--blue);
+    color: var(--yellow);
     font-weight: bold;
+    display: flex;
+    margin: auto;
+    padding-bottom: 3%;
+    font-size: 1.5rem;
   }
 
   .playlist {
-    /* padding: 1rem; */
+    
     display: flex;
     flex-direction: column;
     height: 40vh;
     width: 100%;
     overflow-y: auto;
     margin: 2% auto 0;
+    background-color: var(--red);
+    padding: 3%;
   }
 
-  .playlist-content {
-    background-color: antiquewhite;
-    padding: 1% 0;
-    margin: 1% 0;
-  }
   .playlist-row {
-    background-color: antiquewhite;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     
-    min-width: max-content;
+    background-color: antiquewhite;
+   /* position: absolute;
+   right: 0; */
+    width: 100%;
     padding: 0 1%;
     margin: 0 1%;
+   /* display: flex;
+   justify-content: space-between; */
 
   }
 
@@ -405,6 +466,39 @@ h1, h2, h3, h4, h5 {
 
   .playlist-row button {
     cursor: pointer;
+  }
+
+  .playlist-title-section {
+    display: inline-block;
+    width: 45%;
+    margin: 5%;
+
+  }
+
+  .playlist-title {
+    background-color: var(--green);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  /* playlist-content {
+    position: flex;
+  } */
+
+  .playlist-fields-section {
+    display: inline-block;
+    width: 30%;
+
+  }
+  .playlist-fields {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10%;
+
+
   }
 
   .playlist-field {
@@ -429,12 +523,25 @@ h1, h2, h3, h4, h5 {
     
   }
 
+  .playlist-buttons-section {
+    display: inline-block;
+    width: 10%;
+
+
+  }
+
+  .playlist-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 
 
   .playthistrack {
     border-radius: 2px;
-    padding: 1%;
-    max-height: min-content;
+    padding: 3%;
+    font-size: 1.2rem;
+   
   }
 
   .deletethistrack {
@@ -515,4 +622,11 @@ h1, h2, h3, h4, h5 {
   #uploadForm input {
     margin: 1%;
     font-size: 1.2em;
+  }
+
+  .rockapella {
+    min-width: min-content;
+    max-width: min-content;
+    padding: 0.5em;
+  
   }
