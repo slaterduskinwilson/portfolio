@@ -33,4 +33,11 @@ Hence: superhero, planet, Beatle (you don't have to limit yourself to just the m
 
 # Playlist Interface, With Editable Metadata
 ![playlist](../quitMusic-screens/03.png)
+
+# Playlist As Seen On Mobile
 ![mobile playlist](../quitMusic-screens/05.png)
+
+
+This was a lot of fun to build. Thanks for checking it out!
+
+-Matt
