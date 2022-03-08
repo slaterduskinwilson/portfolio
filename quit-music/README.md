@@ -4,4 +4,4 @@
 
 ![quit music title screen](../quitMusic-screens/01.png)
 
-<img src="../quitMusic-screens/01.png" width="250">
+<img src="../quitMusic-screens/01.png" width="50%">
