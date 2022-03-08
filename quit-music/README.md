@@ -25,6 +25,9 @@ Hence: superhero, planet, Beatle (you don't have to limit yourself to just the m
 # Search/Filter Widget and Mp3 Player
 ![filter widget and mp3 player](../quitMusic-screens/02.png)
 
+# Filtering by "Superhero"
+![filtering by superhero](../quitMusic-screens/08.png)
+
 # Upload Widget
 ![music uploader](../quitMusic-screens/04.png)
 
