@@ -3,8 +3,8 @@
 ## A full stack music storage and playback app
 
 ### I built this app as the final project for my Bootcamp at Austin Community College.
-#### The front end is EJS and vanilla CSS. The back end is Express, MongoDB, and Google Cloud. Authentication via Passport.
-### It supports mp3 upload, metadata editing, search and filter by title and tag, soft deletion (the metadata is deleted from Mongo but the track is retained in Google Cloud), and music playback.
+## The front end is EJS and responsive CSS. The back end is Express, MongoDB, and Google Cloud. Authentication via Passport.
+## It supports mp3 upload, metadata editing, search and filter by title and tag, soft deletion (the metadata is deleted from Mongo but the track is retained in Google Cloud), and music playback.
 
 I used to be in this band, and we were always recording. Any time we practiced, someone had their iPhone voice memos app going. This was great in terms of the creative process, but it was a nightmare to keep track of all the audio files. We had a chaotic system spread across several different SoundCloud and Google Drive accounts (all of which would try to prevent us from sharing a password, thinking we were constantly hacking each other).
 
@@ -22,7 +22,15 @@ Hence: superhero, planet, Beatle (you don't have to limit yourself to just the m
 
 
 
+# Search/Filter Widget and Mp3 Player
+![filter widget and mp3 player](../quitMusic-screens/02.png)
 
-![quit music title screen](../quitMusic-screens/02.png)
+# Upload Widget
+![music uploader](../quitMusic-screens/04.png)
 
-<!-- <img src="../quitMusic-screens/01.png" width="50%"> -->
+# Mobile Player
+![mobile player](../quitMusic-screens/06.png)
+
+# Playlist Interface, With Editable Metadata
+![playlist](../quitMusic-screens/03.png)
+![mobile playlist](../quitMusic-screens/05.png)
