@@ -31,9 +31,6 @@ Hence: superhero, planet, Beatle (you don't have to limit yourself to just the m
 # Upload Widget
 ![music uploader](../quitMusic-screens/04.png)
 
-# Mobile Player
-![mobile player](../quitMusic-screens/06.png)
-
 # Playlist Interface, With Editable Metadata
 ![playlist](../quitMusic-screens/03.png)
 
