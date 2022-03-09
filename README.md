@@ -16,7 +16,7 @@ Personal portfolio site with fun 3d graphics.
 - Node.js
 
 ---
-### Quit Music, Go Back To School
+### "Quit Music, Go Back To School"
 Full stack mp3 storage and playback app, to facilitate remote collaboration on new tracks between band members.
 #### Front end:
 - EJS (Embedded Javascript)
@@ -39,7 +39,7 @@ Personal blog platform that pulls data from a headless content management system
 - Sanity CMS
 - Tailwind CSS
 ---
-### Spotify, But It Doesn't Make Me Angry
+### "Spotify, But It Doesn't Make Me Angry"
 Unonpinionated Spotify clone. 
 Handles playback, search, lyrics, and playlist operations without trying to influence what the user listens to.
 Doesn't plaster your homepage with ads for that one podcast you listened to 5 minutes of that one time.
