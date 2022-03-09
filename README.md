@@ -6,7 +6,7 @@ Thanks for taking the time, and for making it this far.
 ## The things I built are:
 ---
 
-### "Matthew Wilson's Website"
+### ["Matthew Wilson's Website"](https://github.com/slaterduskinwilson)
 Personal portfolio site with fun 3d graphics.
 #### Front end:
 - Three.js (WebGL Javascript library for 3d animations)
