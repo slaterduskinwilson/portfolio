@@ -40,63 +40,117 @@
     </head>
 <body>
 
-    <div class="main bg-neutral-700 sm:container flex flex-wrap  m-auto items-center justify-center">
+    <div class="main w-100 h-100 bg-neutral-700">
     
 
-    <div class="title flex flex-col m-auto items-center justify-center mb-6">
-    <h1 class="font-creepster text-8xl tracking-wide m-10 text-pink-700" contenteditable="true">Matthew Wilson</h1>
+    <div class="title flex flex-col m-auto mb-6 items-center justify-center bg-neutral-700 ">
+    <h1 class="font-creepster text-8xl tracking-wide mt-12 text-pink-700" contenteditable="true">Matthew Wilson</h1>
     
-    <h3 class="font-pixel text-5xl  text-white hover:text-pink-600 m-2" >
+    <h3 class="font-pixel text-5xl  text-white hover:text-pink-600" >
       <a href="https://github.com/slaterduskinwilson" target="_blank" rel="noopener noreferrer">This is my portfolio.</a>
       
     </h3>
     </div>
 
-    <div class="project-section bg-neutral-700 sm:container flex flex-wrap  m-auto items-center justify-center">
+    <div class="project-section bg-neutral-700 sm:container flex flex-wrap  justify-center items-center m-auto">
 
 
         
+        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs flex flex-column">
 <a href="http://www.craigslist.org">
-        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs">
+
+            <div class="project-title flex m-auto">
             <h2 class="mb-4 text-xl font-bold ">Quit Music, Go Back To School</h2>
+        </div>
             <img class="w-50" src="../11.png" alt="bryan ferry looking like bryan ferry">
             <div class="description m-4">
-            <p class="mb-3 font-bold">Full stack music playback and upload app</p>
+            <p class="mb-3 font-bold">Full stack music playback and storage app, for collaboration on new tracks between band members.</p>
             <ul class="mt-4 mb-2 list-disc">
-                <li>Front end: EJS and responsive CSS.</li>
-                <li>Back end: Express, MongoDB, and Google Cloud</li>
-                <li>Authentication: Passport</li>
+                <li>Front end: EJS and responsive CSS</li>
+                <li>Back end: Node.js, Express, MongoDB, and Google Cloud</li>
+                <li>Authentication: Passport.js</li>
             </ul>
         </div>
-        </div>
+        
     </a>
+</div>
 
+
+
+<div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 p-4 max-w-xs flex flex-column">
     <a href="http://www.craigslist.org">
-        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs">
-            <h2 class="mb-4 text-xl font-bold ">Audio Soundboard, Law and Order SVU</h2>
+        <div class="project-title flex m-auto">
+            <h2 class="mb-4 text-xl font-bold m-auto">CMS Blog</h2>
+        </div>
             <img class="w-50" src="../svu.png" alt="the dedicated detectives who investigate these vicious felonies">
             <div class="description m-4">
-            <p class="mb-3 font-bold">Full stack music playback and upload app</p>
+            <p class="mb-3 font-bold">Personal blog platform that pulls post data from a content management system.</p>
             <ul class="mt-4 mb-2 list-disc">
-                <li>Front end: EJS and responsive CSS.</li>
-                <li>Back end: Express, MongoDB, and Google Cloud</li>
-                <li>Authentication: Passport</li>
+                <li>Fontend templated with React, Tailwind CSS</li>
+                <li>Backend content from Sanity CMS</li>
+                
             </ul>
         </div>
-        </div>
     </a>
+</div>
 
-        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs">
-            <h4>This project</h4>
-            <p>lorem ipsum dolor sit amet, consectetur adip</p>
-            <img class="w-50" src="https://images.unsplash.com/photo-1524481905007-ea072534b820?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="spiderman">
+<div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs flex flex-column">
+    <a href="http://www.craigslist.org">
+    
+                <div class="project-title flex m-auto">
+                <h2 class="mb-4 m-auto text-xl font-bold ">SVU Soundboard</h2>
+            </div>
+                <img class="w-50" src="../svu.png" alt="the dedicated detectives who investigate these vicious felonies">
+                <div class="description m-4">
+                <p class="mb-3 font-bold">Single-page web audio soundboard, with a Law & Order SVU and late '90s theme.</p>
+                <ul class="mt-4 mb-2 list-disc">
+                    <li>Javascript, Firebase, responsive CSS</li>
+                    <li>Back end: Node.js, Express, MongoDB, and Google Cloud</li>
+                    <li>Try "the Konami code"</li>
+                </ul>
+            </div>
+            
+        </a>
+    </div>
+
+    <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs flex flex-column">
+        <a href="http://www.craigslist.org">
+        
+                    <div class="project-title flex m-auto">
+                    <h2 class="mb-4 m-auto text-xl font-bold ">Spotify, But It Doesn't Make Me Angry</h2>
+                </div>
+                    <img class="w-50" src="../svu.png" alt="the dedicated detectives who investigate these vicious felonies">
+                    <div class="description m-4">
+                    <p class="mb-3 font-bold">A Spotify clone that doesn't try to influence what you listen to.</p>
+                    <ul class="mt-4 mb-2 list-disc">
+                        <li>Font end: React, React Bootstrap</li>
+                        <li>Back end: Node.js, Express, The Spotify Developer API, Spotify Web API Node</li>
+                        <li>Full search, playback, and playlist editing functionality</li>
+                        <li>Displays song lyrics during playback</li>
+                        <li>Doesn't break your concentration by advertising music it thinks you'll like based on data it took from you, didn't pay you for, and plans to sell to other people you don't know.</li>
+                        <li>If you listen to 10 seconds of a particular podcast, it won't forever more declare that it's one of YOUR SHOWS and advertise it to you on your home screen every day. HEY MATT YOU LUV JOE ROGAN DONT U LOOK THERES A NEW EPISODE LOOK LOOK MATT HEY MATT</li>
+                        <li>Authenticate with your Spotify account. Unfortunately, you do need a premium account to use it.</li>
+                    </ul>
+                </div>
+                
+            </a>
         </div>
 
-        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-4 max-w-xs">
-            <h4>This project</h4>
-            <img class="w-50" src="https://images.unsplash.com/photo-1524481905007-ea072534b820?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="spiderman">
-            <p>lorem ipsum dolor sit amet, consectetur adip</p>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
