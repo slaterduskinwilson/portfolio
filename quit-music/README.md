@@ -6,6 +6,9 @@
 ## The front end is EJS and responsive CSS. The back end is Express, MongoDB, and Google Cloud. Authentication via Passport.
 ## It supports mp3 upload, metadata editing, search and filter by title and tag, soft deletion (the metadata is deleted from Mongo but the track is retained in Google Cloud), and music playback.
 
+# Search/Filter Widget and Mp3 Player
+![filter widget and mp3 player](../quitMusic-screens/02.png)
+
 I used to be in this band, and we were always recording. Any time we practiced, someone had their iPhone voice memos app going. This was great in terms of the creative process, but it was a nightmare to keep track of all the audio files. We had a chaotic system spread across several different SoundCloud and Google Drive accounts (all of which would try to prevent us from sharing a password, thinking we were constantly hacking each other).
 
 We also needed some kind of organization system for the songs, but it needed to be very loose. 
@@ -22,8 +25,7 @@ Hence: superhero, planet, Beatle (you don't have to limit yourself to just the m
 
 
 
-# Search/Filter Widget and Mp3 Player
-![filter widget and mp3 player](../quitMusic-screens/02.png)
+
 
 # Filtering by "Superhero"
 ![filtering by superhero](../quitMusic-screens/08.png)
