@@ -33,10 +33,4 @@ Single-page web audio soundboard, with a Law & Order SVU and late '90s theme.
 - Firebase
 - Responsive CSS
 ---
-### CMS Blog
-Personal blog platform that pulls data from a headless content management system.
-- React
-- Sanity CMS
-- Tailwind CSS
----
 
