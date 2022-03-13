@@ -55,47 +55,47 @@
     <body>
         <div class="app">
             <div
-                class="absolute text-white text-center sm:container"
+                class="absolute text-white text-center sm:container mt-10 lg:mt-2"
                 style="top: 50%; transform: translate(-50%, -50%); left: 50%"
             >
                 <!-- inline style contains the old-school trick for centering a div... cumbersome! -->
                 <h1
-                    class="font-creepster text-8xl tracking-wide m-2"
+                    class="font-creepster text-7xl lg:text-8xl tracking-wide mt-20"
                     contenteditable="true"
                 >
                     Matthew Wilson
                 </h1>
 
-                <h3 class="font-pixel text-5xl hover:text-pink-600 m-2">
+                <h3 class="font-pixel text-3xl lg:text-5xl hover:text-pink-600 lg:my-8 mt-4 mx-2">
                     <a
                         href="https://github.com/slaterduskinwilson"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >Click here to visit my GitHub.</a
+                        >I'm a web developer. Click here to visit my GitHub.</a
                     >
                 </h3>
 
                 <!-- anchor tags have a default class of inline in tailwind, so if we want all our style to happen we need to specify that it's inline-block instead -->
 
-                <nav class="the-buttons flex flex-col w-4/5 m-auto">
+                <nav class="the-buttons flex flex-col w-4/5 mt-10 mx-auto min-h-full">
                     <div class="sublinks flex justify-center">
                         <div class="">
                             <button
                                 id="other-button"
-                                class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide hover:bg-white hover:text-gray-800 m-2"
+                                class="font-pixel text-2xl border px-4 py-2 rounded-md uppercase tracking-wide hover:bg-white hover:text-gray-800 m-2"
                             >
                                 Change The View!
                             </button>
                         </div>
 
                         <!-- <div class="portfolio-button group"> -->
-                        <a href="/nested/portfolio.html">
+                        <div class="">
                             <button
-                                class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide m-2 hover:bg-white hover:text-gray-800"
+                                class="font-pixel text-2xl border px-4 py-2 rounded-md uppercase tracking-wide m-2 hover:bg-white hover:text-gray-800 max-h-fit"
                             >
-                                My Portfolio
+                            <a href="/nested/portfolio.html">Look At My Portfolio</a>
                             </button>
-                        </a>
+                        </div>
 
                         <!-- <div class="portfolio-children">
                       <ul>
@@ -121,19 +121,19 @@
                         <div>
                             <div class="portfolio-button group">
                                 <button
-                                    class="font-pixel text-lg border px-4 py-2 rounded-md uppercase tracking-wide m-2 hover:bg-white hover:text-gray-800"
+                                    class="font-pixel text-2xl border px-4 py-2 rounded-md uppercase tracking-wide m-2 hover:bg-white hover:text-gray-800"
                                 >
                                     Learn About Me
                                 </button>
 
-                                <div class="portfolio-children">
-                                    <ul>
+                                <div class="portfolio-children w-min ">
+                                    <ul class="flex flex-col p-2">
                                         <li>
                                             <a
                                                 href="https://www.linkedin.com/in/slaterduskinwilson"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="inline-block font-pixel text-lg border w-24 px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
+                                                class="inline-block font-pixel text-2xl border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
                                                 >LinkedIn</a
                                             >
                                         </li>
@@ -143,8 +143,8 @@
                                                 href="https://github.com/slaterduskinwilson/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="inline-block font-pixel text-lg border w-24 px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
-                                                >GitHub</a
+                                                class="inline-block font-pixel text-2xl border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
+                                                >My GitHub Projects</a
                                             >
                                         </li>
 
@@ -153,7 +153,7 @@
                                                 href="https://nsajk.bandcamp.com"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                class="inline-block font-pixel text-lg border w-24 px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
+                                                class="inline-block font-pixel text-2xl border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 hover:bg-white hover:text-gray-800 scale-0 group-hover:scale-100 transition"
                                                 >Music I Made</a
                                             >
                                         </li>
