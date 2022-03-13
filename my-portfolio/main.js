@@ -253,10 +253,10 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // scene.add(planet)
 
 
-const spaceBackground = new THREE.TextureLoader().load('./jeremy-perkins-space.jpg')
+const spaceBackground = new THREE.TextureLoader().load('./assets/jeremy-perkins-space.jpg')
 scene.background = spaceBackground
 
-const jupiterTexture = new THREE.TextureLoader().load('./jupiter.jpg')
+const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
 // we're also gonna ad  a "normal map", which is a weird colored image that gives the appearance of texture
 // const normalTexture = new THREE.TextureLoader().load('../normal.png')
 const jupiter = new THREE.Mesh(
@@ -287,7 +287,7 @@ let tieFighter
 
 const loader = new GLTFLoader()
 loader.load(
-    'tieFighter.glb',
+    './assets/tieFighter.glb',
     function (gltf) {
         tieFighter = gltf.scene
         scene.add(tieFighter)

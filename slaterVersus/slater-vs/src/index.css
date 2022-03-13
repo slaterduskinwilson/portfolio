@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Press+Start+2P&display=swap');
+
+/* remember to bring in tailwind typography for use with block content:
+npm i -D @tailwindcss/typography */
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+
+  font-family: 'Press Start 2P', cursive;
+}
+
+p, ul, ol, li {
+  font-family: 'Cutive Mono', monospace;
+}
+
