@@ -52,9 +52,9 @@ export default function OnePost() {
 
     return (
         <div className="bg-yellow-200 min-h-screen  pb-12">
-            <div className="hidden lg:block lg:fixed w-full  z-10  ">
+            {/* <div className="hidden lg:block lg:fixed w-full  z-10  ">
             <Navbar />
-            </div>
+            </div> */}
 
             <div className="container relative shadow-lg mx-auto bg-yellow-100 rounded-lg flex flex-col">
 
@@ -70,7 +70,7 @@ export default function OnePost() {
                         alt="main image of post"
                     />
 
-<div className="title-card absolute top-1/4 lg:bottom-20 bg-pink-700 bg-opacity-80  lg:p-4 flex flex-wrap items-center w-full h-fit">
+<div className="title-card absolute top-0 lg:bottom-20 bg-pink-700 bg-opacity-80  lg:p-4 flex flex-wrap items-center w-3/4 h-fit">
 
 
 <div className="author-and-date flex flex-col align-start justify-start text-yellow-200 p-2 ml-4 mr-8 w-1/6">
@@ -98,7 +98,7 @@ export default function OnePost() {
     </div>
 
 <div className="w-1/2 m-1 p-2">
-<h2 className="text-xl md:text-3xl lg:text-6xl">
+<h2 className="text-xl md:text-3xl lg:text-5xl">
         {postData.title}
         
     </h2>
@@ -116,11 +116,7 @@ export default function OnePost() {
 
 
 
-
-                            
-                    </div>
-
-                <div className="px-10 lg:px-48 py-10 lg:py-10 mt-1 prose lg:prose-xl max-w-full">
+                    <div className="px-10 lg:px-48 py-10 lg:py-10 mt-1 prose lg:prose-xl max-w-full">
                     {/* remember, prose is our typography class! */}
 
                     <BlockContent
@@ -130,6 +126,10 @@ export default function OnePost() {
                     />
                 </div>
 
+                            
+                    </div>
+
+               
              
             
             </div>

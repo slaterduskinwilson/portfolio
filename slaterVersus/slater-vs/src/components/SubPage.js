@@ -31,15 +31,19 @@ export default function SubPage() {
          
           <Navbar />
 
-          <div className="container shadow-lg mx-auto bg-yellow-100 rounded-lg">
+          <div className="container shadow-lg mx-auto my-4 px-12 py-4 bg-yellow-100 rounded-lg">
 
-          <h1 className="text-3xl lg:text-6xl mb-4">{pageData.title}</h1>
+          <h1 className="text-3xl lg:text-6xl my-4 text-center p-8">{pageData.title}</h1>
 
+          <div className="block-content pb-16">
+
+         
           <BlockContent 
             blocks={pageData.body}
             projectId={sanityClient.clientConfig.projectId}
             dataset={sanityClient.clientConfig.dataset}
             />
+             </div>
               
               </div>
 
