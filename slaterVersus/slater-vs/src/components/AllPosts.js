@@ -40,8 +40,8 @@ export default function AllPosts() {
         <div className="main-content h-5/6 m-4">
 
         
-        <h2 className="text-4xl flex justify-center m-10">Slater Versus...</h2>
-        <h3 className="text-lg text-gray-700 flex justify-center mt-6 mb-12">An Airing of Legitimate Grievances</h3>
+        <h3 className="text-md lg:text-lg text-gray-700 flex justify-center mt-6 mb-12">An Airing Of Legitimate Grievances</h3>
+        <h1 className="text-4xl lg:text-6xl flex justify-center m-10">Slater Versus...</h1>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
             {allPostsData &&
             allPostsData.map((post, index) => (

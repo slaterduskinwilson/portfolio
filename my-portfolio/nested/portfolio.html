@@ -39,13 +39,14 @@
             }
 
             .font-creepster {
-                font-family: 'Creepster', cursive;
-                text-shadow: 2px 2px 10px black;
+                font-family: 'Creepster', sans-serif;
+               
+                
             }
 
             .font-pixel {
                 font-family: 'VT323', monospace;
-                text-shadow: 2px 2px 10px black;
+              
             }
         </style>
         <!-- <script type="module" crossorigin src="/assets/index.1b8d336d.js"></script>
@@ -63,7 +64,26 @@
                 >
                     Matthew Wilson
                 </h1>
-
+                <div class="contact-form m-auto border rounded-md flex max-w-min text-pink-600">
+                
+                    <!-- modify this form HTML and place wherever you want your form -->
+                    
+                    <form action="https://formspree.io/f/xqknlpke" method="POST">
+                        <div class="flex-col justify-start items-start pb-6 px-4">
+                        <label class="font-pixel text-xl">
+                            Your email:
+                            <input class=" px-2" type="email" name="email" />
+                        </label>
+                        <label class="font-pixel text-xl ">
+                            Your message:
+                            <textarea class=" px-2" name="message"></textarea>
+                          </label>
+                       
+                        
+                    </div>
+                    <button class="border  mx-4 mb-6 px-4 py-1 h-min font-pixel text-xl rounded-md hover:bg-white hover:text-gray-800" type="submit">Contact Me</button>
+                    </form>
+                </div>
                 <h3
                     class="font-pixel text-5xl mt-10 text-white hover:text-pink-600"
                 >
@@ -74,10 +94,19 @@
                         >These are my portfolio projects.</a
                     >
                 </h3>
+                <h4 > <a  class="font-pixel text-3xl mt-10 text-white hover:text-pink-600"
+                    href="https://github.com/slaterduskinwilson/portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Click here to view them on GitHub.</a
+                ></h4>
             </div>
 
+           
+            
+
             <div
-                class="project-section sm:container flex flex-wrap justify-center items-start mt-8 m-auto"
+                class="project-section sm:container flex flex-wrap justify-center items-start mt-8 m-auto font-creepster text-xl">
             >
                 <div
                     class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 flex flex-column max-w-xs"
@@ -119,7 +148,7 @@
                 <div
                     class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column"
                 >
-                    <a href="https://www.slaterversus.com">
+                    <a href="https://slaterversus.com">
                         <div class="project-title">
                             <h2 class="mb-8 text-3xl font-bold text-center">
                                 CMS Blog
@@ -141,6 +170,7 @@
                                 </li>
                                 <li>Backend content from Sanity CMS</li>
                             </ul>
+                            
                         </div>
                     </a>
                 </div>
