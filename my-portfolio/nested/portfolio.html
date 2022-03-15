@@ -4,15 +4,31 @@
         <meta charset="UTF-8" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-        <link rel="stylesheet" href="../index.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap" rel="stylesheet"> 
-        <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<!-- <link rel="manifest" href="/site.webmanifest"> -->
+        <link rel="stylesheet" href="../index.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../favicon-16x16.png"
+        />
+        <!-- <link rel="manifest" href="/site.webmanifest"> -->
         <title>Matthew Wilson's Portfolio</title>
         <style>
             body {
@@ -20,99 +36,146 @@
                 -webkit-font-smoothing: antialiased;
                 /* antialiasing makes our fonts clearer, only works on macos. see https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
                 box-sizing: border-box;
-
             }
 
-           .font-creepster {
-            font-family: 'Creepster', cursive;
-            text-shadow: 2px 2px 10px black;
-           }
+            .font-creepster {
+                font-family: 'Creepster', cursive;
+                text-shadow: 2px 2px 10px black;
+            }
 
-           .font-pixel {
-            font-family: 'VT323', monospace;
-            text-shadow: 2px 2px 10px black;
-           }
-            
+            .font-pixel {
+                font-family: 'VT323', monospace;
+                text-shadow: 2px 2px 10px black;
+            }
         </style>
-      <!-- <script type="module" crossorigin src="/assets/index.1b8d336d.js"></script>
+        <!-- <script type="module" crossorigin src="/assets/index.1b8d336d.js"></script>
       <link rel="modulepreload" href="/assets/vendor.516a4c24.js">
       <link rel="stylesheet" href="/assets/index.1725faed.css"> -->
     </head>
-<body>
+    <body>
+        <div class="main w-100 h-100 bg-neutral-900">
+            <div
+                class="title flex flex-col m-auto p-8 items-center justify-center align-center"
+            >
+                <h1
+                    class="font-creepster lg:text-8xl text-7xl tracking-wide mt-6 text-pink-500"
+                    contenteditable="true"
+                >
+                    Matthew Wilson
+                </h1>
 
-    <div class="main w-100 h-100 bg-neutral-900">
-    
-
-    <div class="title flex flex-col m-auto p-8 items-center justify-center align-center">
-    <h1 class="font-creepster lg:text-8xl text-7xl tracking-wide mt-6 text-pink-500" contenteditable="true">Matthew Wilson</h1>
-    
-    <h3 class="font-pixel text-5xl mt-10 text-white hover:text-pink-600" >
-      <a href="https://github.com/slaterduskinwilson/portfolio" target="_blank" rel="noopener noreferrer">These are my portfolio projects.</a>
-      
-    </h3>
-    </div>
-
-    <div class="project-section  sm:container flex flex-wrap  justify-center items-start mt-8 m-auto">
-
-
-        
-        <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8  flex flex-column  max-w-xs">
-<a href="https://github.com/slaterduskinwilson/portfolio/tree/main/quit-music">
-
-            <div class="project-title">
-            <h2 class="mb-8  text-3xl font-bold text-center ">Quit Music, Go Back To School</h2>
-        </div>
-            <img class=" " src="../assets/11.png" alt="bryan ferry looking like bryan ferry">
-            <div class="description m-4">
-            <p class="mb-3 font-bold">Full stack music playback and storage app, for collaboration on new tracks between band members.</p>
-            <ul class="mt-4 mb-2 list-disc">
-                <li>Front end: EJS (Embedded Javascript) and responsive CSS</li>
-                <li>Back end: Node.js, Express, MongoDB, and Google Cloud</li>
-                <li>Authentication: Passport.js</li>
-            </ul>
-        </div>
-        
-    </a>
-</div>
-
-
-
-<div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column">
-    <a href="http://www.craigslist.org">
-        <div class="project-title">
-            <h2 class="mb-8  text-3xl font-bold text-center">CMS Blog</h2>
-        </div>
-            <img class="h-50" src="../assets/slatervs01.png" alt="the dedicated detectives who investigate these vicious felonies">
-            <div class="description m-4">
-            <p class="mb-3 font-bold">Personal blog platform that pulls post data from a content management system.</p>
-            <ul class="mt-4 mb-2 list-disc">
-                <li>Fontend templated with React, Tailwind CSS</li>
-                <li>Backend content from Sanity CMS</li>
-                
-            </ul>
-        </div>
-    </a>
-</div>
-
-<div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column">
-    <a href="https://svu-soundboard.web.app/">
-    
-                <div class="project-title">
-                <h2 class="mb-8  text-3xl font-bold text-center">SVU Soundboard</h2>
+                <h3
+                    class="font-pixel text-5xl mt-10 text-white hover:text-pink-600"
+                >
+                    <a
+                        href="https://github.com/slaterduskinwilson/portfolio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >These are my portfolio projects.</a
+                    >
+                </h3>
             </div>
-                <img class="w-50 h-50" src="../assets/svu.png" alt="the dedicated detectives who investigate these vicious felonies">
-                <div class="description m-4">
-                <p class="mb-3 font-bold">Single-page web audio soundboard, with a Law & Order SVU and late '90s theme.</p>
-                <ul class="mt-4 mb-2 list-disc">
-                    <li>Javascript, Firebase, responsive CSS</li>
-                    <li>Back end: Node.js, Express, MongoDB, and Google Cloud</li>
-                    <li>Try "the Konami code"</li>
-                </ul>
-            </div>
-            
-        </a>
-    </div>
-<!-- 
+
+            <div
+                class="project-section sm:container flex flex-wrap justify-center items-start mt-8 m-auto"
+            >
+                <div
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 flex flex-column max-w-xs"
+                >
+                    <a
+                        href="https://github.com/slaterduskinwilson/portfolio/tree/main/quit-music"
+                    >
+                        <div class="project-title">
+                            <h2 class="mb-8 text-3xl font-bold text-center">
+                                Quit Music, Go Back To School
+                            </h2>
+                        </div>
+                        <img
+                            class=" "
+                            src="../assets/11.png"
+                            alt="bryan ferry looking like bryan ferry"
+                        />
+                        <div class="description m-4">
+                            <p class="mb-3 font-bold">
+                                Full stack music playback and storage app, for
+                                collaboration on new tracks between band
+                                members.
+                            </p>
+                            <ul class="mt-4 mb-2 list-disc">
+                                <li>
+                                    Front end: EJS (Embedded Javascript) and
+                                    responsive CSS
+                                </li>
+                                <li>
+                                    Back end: Node.js, Express, MongoDB, and
+                                    Google Cloud
+                                </li>
+                                <li>Authentication: Passport.js</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+                <div
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column"
+                >
+                    <a href="https://www.slaterversus.com">
+                        <div class="project-title">
+                            <h2 class="mb-8 text-3xl font-bold text-center">
+                                CMS Blog
+                            </h2>
+                        </div>
+                        <img
+                            class="h-50"
+                            src="../assets/slatervs01.png"
+                            alt="the dedicated detectives who investigate these vicious felonies"
+                        />
+                        <div class="description m-4">
+                            <p class="mb-3 font-bold">
+                                Personal blog platform that pulls post data from
+                                a content management system.
+                            </p>
+                            <ul class="mt-4 mb-2 list-disc">
+                                <li>
+                                    Fontend templated with React, Tailwind CSS
+                                </li>
+                                <li>Backend content from Sanity CMS</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+                <div
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column"
+                >
+                    <a href="https://svu-soundboard.web.app/">
+                        <div class="project-title">
+                            <h2 class="mb-8 text-3xl font-bold text-center">
+                                SVU Soundboard
+                            </h2>
+                        </div>
+                        <img
+                            class="w-50 h-50"
+                            src="../assets/svu.png"
+                            alt="the dedicated detectives who investigate these vicious felonies"
+                        />
+                        <div class="description m-4">
+                            <p class="mb-3 font-bold">
+                                Single-page web audio soundboard, with a Law &
+                                Order SVU and late '90s theme.
+                            </p>
+                            <ul class="mt-4 mb-2 list-disc">
+                                <li>Javascript, Firebase, responsive CSS</li>
+                                <li>
+                                    Back end: Node.js, Express, MongoDB, and
+                                    Google Cloud
+                                </li>
+                                <li>Try "the Konami code"</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+                <!-- 
     <div class="single-project rounded-sm hover:bg-pink-500 bg-blue-500 m-4 p-8 max-w-xs flex flex-column">
         <a href="http://svu-soundboard.web.app">
         
@@ -135,31 +198,7 @@
                 
             </a>
         </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-    </div>
-
-    
-</body>
+            </div>
+        </div>
+    </body>
 </html>
