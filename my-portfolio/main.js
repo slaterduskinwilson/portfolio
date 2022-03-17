@@ -222,9 +222,15 @@ const raycaster = new THREE.Raycaster()
 
 const renderer = new THREE.WebGLRenderer()
 
+// const canvas = document.querySelector('.app')
+//MESSING AROUND TRYNA GET THE RIGHT SIZE 3d ACTIVITY WITHOUT A WHITE BAR AT THE BOTTOM OF THE PAGE
+
+
 renderer.setSize(innerWidth, innerHeight)
+
 //we don't need to specify window.innerWidth or window.innerHeight, because we're already working with the window object! cooL!
 renderer.setPixelRatio(devicePixelRatio)
+
 //setting the pixel ratio reduces the jagged-ness of our 3d shape SIGNIFICANTLY
 document.body.appendChild(renderer.domElement)
 //we appended a canvas element to the body of our html!
