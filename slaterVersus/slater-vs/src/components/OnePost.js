@@ -51,6 +51,8 @@ export default function OnePost() {
    
 
     return (
+        <>
+        <Navbar />
         <div className="bg-yellow-200 min-h-screen  pb-12">
             {/* <div className="hidden lg:block lg:fixed w-full  z-10  ">
             <Navbar />
@@ -133,7 +135,7 @@ export default function OnePost() {
              
             
             </div>
-            
+            </>
         
     )
 }
