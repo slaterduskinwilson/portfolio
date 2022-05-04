@@ -46,7 +46,9 @@ let currentMove = 0
 const cameraMoves = [
     {
         position: {
-            x: 0.01 , y: -101.51, z: -21.15
+            x: 0.01,
+            y: -101.51,
+            z: -21.15
         },
         rotation: {
             x: 1.79,
@@ -67,7 +69,7 @@ const cameraMoves = [
         }
     },
     //x: 0.006639061713842827 , y: -76.84965623151145, z: -13.335661962538065
-   
+
     {
         position: {
             x: 16.25,
@@ -96,10 +98,14 @@ const cameraMoves = [
 
     {
         position: {
-            x: -0.04301093802784941 , y: 28.448426915157665, z: -7.447806296223387
+            x: -0.04301093802784941,
+            y: 28.448426915157665,
+            z: -7.447806296223387
         },
         rotation: {
-            x: -1.8435210815291905, y: -0.0015555272486780874, z: -3.1360311770623106
+            x: -1.8435210815291905,
+            y: -0.0015555272486780874,
+            z: -3.1360311770623106
         }
     }
 ]
@@ -225,7 +231,6 @@ const renderer = new THREE.WebGLRenderer()
 // const canvas = document.querySelector('.app')
 //MESSING AROUND TRYNA GET THE RIGHT SIZE 3d ACTIVITY WITHOUT A WHITE BAR AT THE BOTTOM OF THE PAGE
 
-
 renderer.setSize(innerWidth, innerHeight)
 
 //we don't need to specify window.innerWidth or window.innerHeight, because we're already working with the window object! cooL!
@@ -258,8 +263,9 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // const planet = new THREE.mesh(sphereGeometry, sphereMaterial);
 // scene.add(planet)
 
-
-const spaceBackground = new THREE.TextureLoader().load('./assets/jeremy-perkins-space.jpg')
+const spaceBackground = new THREE.TextureLoader().load(
+    './assets/jeremy-perkins-space.jpg'
+)
 scene.background = spaceBackground
 
 const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
@@ -288,28 +294,28 @@ jupiter.rotateY(-1)
 //
 
 //add the tie fighter!
-let tieFighter
+// let tieFighter
 //declare it first, so we can assign the loaded object to it
 
-const loader = new GLTFLoader()
-loader.load(
-    './assets/tieFighter.glb',
-    function (gltf) {
-        tieFighter = gltf.scene
-        scene.add(tieFighter)
-        tieFighter.position.setY(60)
-        tieFighter.position.setZ(-5)
-        tieFighter.position.setX(22)
-        tieFighter.rotateX(-1.5)
-        tieFighter.rotateY(-2)
-    },
-    function (xhr) {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-    },
-    function (error) {
-        console.error(error)
-    }
-)
+// const loader = new GLTFLoader()
+// loader.load(
+//     './assets/tieFighter.glb',
+//     function (gltf) {
+//         tieFighter = gltf.scene
+//         scene.add(tieFighter)
+//         tieFighter.position.setY(60)
+//         tieFighter.position.setZ(-5)
+//         tieFighter.position.setX(22)
+//         tieFighter.rotateX(-1.5)
+//         tieFighter.rotateY(-2)
+//     },
+//     function (xhr) {
+        // console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+//     },
+//     function (error) {
+//         console.error(error)
+//     }
+// )
 
 const geometry = new THREE.PlaneGeometry(
     world.plane.width,
@@ -500,21 +506,21 @@ function animate() {
     // console.log('camera rotation: ', camera.rotation)
 
     //TIE ANIMATION
-    if (tieFighter) {
-        //if we've loaded our tie fighter...
-        tieFighter.position.x -= 0.1
-        tieFighter.position.y -= 0.1
+//     if (tieFighter) {
+//         //if we've loaded our tie fighter...
+//         tieFighter.position.x -= 0.1
+//         tieFighter.position.y -= 0.1
 
-        if (tieFighter.position.x < -100) {
-            //if the tie fighter flies off the screen, plop it back to its original position
-            tieFighter.position.setY(60)
-            tieFighter.position.setZ(-5)
-            tieFighter.position.setX(22)
-            tieFighter.rotateX(-1.5)
-        }
-    }
-}
-// end of animate function
+//         if (tieFighter.position.x < -100) {
+//             //if the tie fighter flies off the screen, plop it back to its original position
+//             tieFighter.position.setY(60)
+//             tieFighter.position.setZ(-5)
+//             tieFighter.position.setX(22)
+//             tieFighter.rotateX(-1.5)
+//         }
+//     }
+// }
+// // end of animate function
 
 const mouse = {
     //we're creating a mouse object, and we're gonna set its x and y properties to be the mouse's position in the browser window, every time we move the mouse
