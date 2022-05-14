@@ -14,14 +14,14 @@ const world = {
         width: 86,
         height: 292,
         widthSegments: 200,
-        heightSegments: 150
+        heightSegments: 150,
     },
 
     colors: {
         shape: '#92a32b',
         hover: '#1AE0C8',
-        trail: '#ff0067'
-    }
+        trail: '#ff0067',
+    },
 }
 
 let currentTheme = 0
@@ -30,14 +30,14 @@ const themes = [
     {
         shape: '#92a32b',
         hover: '#1AE0C8',
-        trail: '#ff0067'
+        trail: '#ff0067',
     },
 
     { shape: '#2672e8', hover: '#4bd9ef', trail: '#adadad' },
 
     { shape: '#999999', hover: '#f9e842', trail: '#6b0091' },
 
-    { shape: '#a32b64', hover: '#ebed44', trail: '#56f4ff' }
+    { shape: '#a32b64', hover: '#ebed44', trail: '#56f4ff' },
 ]
 
 let currentMove = 0
@@ -46,27 +46,39 @@ let currentMove = 0
 const cameraMoves = [
     {
         position: {
+            x: -0.04301093802784941,
+            y: 28.448426915157665,
+            z: -7.447806296223387,
+        },
+        rotation: {
+            x: -1.8435210815291905,
+            y: -0.0015555272486780874,
+            z: -3.1360311770623106,
+        },
+    },
+    {
+        position: {
             x: 0.01,
             y: -101.51,
-            z: -21.15
+            z: -21.15,
         },
         rotation: {
             x: 1.79,
             y: 0,
-            z: -3.14
-        }
+            z: -3.14,
+        },
     },
     {
         position: {
             x: -0.5,
             y: 4,
-            z: -53
+            z: -53,
         },
         rotation: {
             x: 3.11,
             y: 0,
-            z: -3.14
-        }
+            z: -3.14,
+        },
     },
     //x: 0.006639061713842827 , y: -76.84965623151145, z: -13.335661962538065
 
@@ -74,40 +86,29 @@ const cameraMoves = [
         position: {
             x: 16.25,
             y: 10,
-            z: -8.3
+            z: -8.3,
         },
         rotation: {
             x: 3.03,
             y: 1.092,
-            z: 3.049
-        }
+            z: 3.049,
+        },
     },
 
     {
         position: {
             x: 0.00156,
             y: -12,
-            z: -3.013
+            z: -3.013,
         },
         rotation: {
             x: 1.736,
             y: 0,
-            z: -3.14
-        }
+            z: -3.14,
+        },
     },
 
-    {
-        position: {
-            x: -0.04301093802784941,
-            y: 28.448426915157665,
-            z: -7.447806296223387
-        },
-        rotation: {
-            x: -1.8435210815291905,
-            y: -0.0015555272486780874,
-            z: -3.1360311770623106
-        }
-    }
+  
 ]
 
 // //gui.add takes 4 arguments: the object you're manipulating, the property of that object you're manipulating, and the min and max values you want to put on the manipulation slider!
@@ -226,25 +227,40 @@ const camera = new THREE.PerspectiveCamera(
 const raycaster = new THREE.Raycaster()
 //a raycaster is like... a little laser pointer that's always being pointed at something. We'll move it around with our mouse! WHAT?!
 
-const renderer = new THREE.WebGLRenderer()
+const renderer = new THREE.WebGLRenderer({
+    // canvas: document.querySelector('.bg')
+})
 
 // const canvas = document.querySelector('.app')
 //MESSING AROUND TRYNA GET THE RIGHT SIZE 3d ACTIVITY WITHOUT A WHITE BAR AT THE BOTTOM OF THE PAGE
 
-renderer.setSize(innerWidth, innerHeight)
+renderer.setSize(window.innerWidth, window.innerHeight)
 
 //we don't need to specify window.innerWidth or window.innerHeight, because we're already working with the window object! cooL!
-renderer.setPixelRatio(devicePixelRatio)
+renderer.setPixelRatio(window.devicePixelRatio)
 
 //setting the pixel ratio reduces the jagged-ness of our 3d shape SIGNIFICANTLY
+
+//NOTE: we're not appending this to the body anymore, instead we're specifying a CANVAS in our renderer!
+
 document.body.appendChild(renderer.domElement)
 //we appended a canvas element to the body of our html!
 
 //let's position our camera somewhere cool:
 //  { x: 0.058991773097945004, y: -6.384716906143697, z: -3.9242363137500984 }
-camera.position.x = 0.0015
-camera.position.y = -18
-camera.position.z = -3.013
+// camera.position.x = 0.0015
+// camera.position.y = -18
+// camera.position.z = -3.013
+
+camera.position.x = 5
+camera.position.y = 4
+camera.position.z = -50
+
+// camera.rotation.x = 3
+// camera.rotation.y = 10
+// camera.rotation.z = -8.3
+
+
 
 // camera.position.z = 50
 //this moves our camera back, so we can see our plane!
@@ -263,88 +279,77 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // const planet = new THREE.mesh(sphereGeometry, sphereMaterial);
 // scene.add(planet)
 
-
-
-
 //LET'S GET RID OF THIS BIG SLOW STARS BACKGROUND AND MAKE OUR OWN STARS!
 // https://codepen.io/GraemeFulton/pen/BNyQMM?editors=0010
 
 var stars = []
 
-function addSphere(){
-
-    // The loop will move from z position of -1000 to z position 1000, adding a random particle at each position. 
-    for ( var z= -1000; z < 1000; z+=0.5 ) {
-
-        // Make a sphere (exactly the same as before). 
-        var geometry   = new THREE.SphereGeometry(0.2, 32, 32)
-        var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+function addSphere() {
+    // The loop will move from z position of -1000 to z position 1000, adding a random particle at each position.
+    for (var z = -200; z < 200; z += 0.5) {
+        // Make a sphere (exactly the same as before).
+        var geometry = new THREE.SphereGeometry(0.2, 32, 32)
+        var material = new THREE.MeshBasicMaterial({ color: 0xffffff })
         var sphere = new THREE.Mesh(geometry, material)
 
         // This time we give the sphere random x and y positions between -500 and 500
-        sphere.position.x = Math.random() * 1000 - 500;
-        sphere.position.y = Math.random() * 1000 - 500;
+        sphere.position.x = Math.random() * 1000 - 500
+        sphere.position.y = Math.random() * 1000 - 500
 
         // Then set the z position to where it is in the loop (distance of camera)
-        sphere.position.z = z;
+        sphere.position.z = z
 
         // scale it up a bit
-        sphere.scale.x = sphere.scale.y = 2;
+        sphere.scale.x = sphere.scale.y = 2
 
         //add the sphere to the scene
-        scene.add( sphere );
+        scene.add(sphere)
 
-        //finally push it to the stars array 
-        stars.push(sphere); 
+        //finally push it to the stars array
+        stars.push(sphere)
     }
 }
 
-function animateStars() { 
+function animateStars() {
     //https://codepen.io/GraemeFulton/pen/BNyQMM?editors=0010
-				
+
     // loop through each star
-    for(var i=0; i<stars.length; i++) {
-        
-        let star = stars[i]; 
-            
-        // and move it forward dependent on the mouseY position. 
-        star.position.z +=  i/10;
-            
+    for (var i = 0; i < stars.length; i++) {
+        let star = stars[i]
+
+        // and move it forward dependent on the mouseY position.
+        star.position.z += i / 10
+
         // if the particle is too close move it to the back
-        if(star.position.z>1000) star.position.z-=2000; 
-        
+        if (star.position.z > 1000) star.position.z -= 2000
     }
-
 }
-
-
-
 
 // const spaceBackground = new THREE.TextureLoader().load(
 //     './assets/jeremy-perkins-space.jpg'
 // )
 // scene.background = spaceBackground
 
-const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
+// const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
 // we're also gonna ad  a "normal map", which is a weird colored image that gives the appearance of texture
 // const normalTexture = new THREE.TextureLoader().load('../normal.png')
-const jupiter = new THREE.Mesh(
-    new THREE.SphereGeometry(2, 64, 64),
-    new THREE.MeshStandardMaterial({
-        map: jupiterTexture
-        // normalMap: normalTexture
-    })
-)
-scene.add(jupiter)
-// jupiter.position.z = 30
-// jupiter.position.setX(-10)
-jupiter.position.setY(40)
-jupiter.position.setZ(-5)
-jupiter.position.setX(-22)
-jupiter.rotateX(-1.6)
-//yo, rotation is in radians!
-jupiter.rotateZ(0.75)
-jupiter.rotateY(-1)
+// const jupiter = new THREE.Mesh(
+//     new THREE.SphereGeometry(2, 64, 64),
+//     new THREE.MeshStandardMaterial({
+//         map: jupiterTexture
+//         // normalMap: normalTexture
+//     })
+// )
+// scene.add(jupiter)
+// // jupiter.position.z = 30
+// // jupiter.position.setX(-10)
+// jupiter.position.setY(40)
+// jupiter.position.setZ(-5)
+// jupiter.position.setX(-22)
+// jupiter.rotateX(-1.6)
+// //yo, rotation is in radians!
+// jupiter.rotateZ(0.75)
+// jupiter.rotateY(-1)
 
 //
 //
@@ -367,11 +372,11 @@ jupiter.rotateY(-1)
 //         tieFighter.rotateY(-2)
 //     },
 //     function (xhr) {
-        // console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+// console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
 //     },
 //     function (error) {
 //         console.error(error)
-    // }
+// }
 // )
 
 const geometry = new THREE.PlaneGeometry(
@@ -391,7 +396,7 @@ const material = new THREE.MeshPhongMaterial({
     //by default, the back sides of shapes aren't rendered, in order to save memory. We need to specify that the shape is doublesided if we want the back of the thing to show up when we rotate it!
     flatShading: THREE.FlatShading,
     //flatShading gives us some geometric depth when we start messing with the z vertices below! COOL!
-    vertexColors: true
+    vertexColors: true,
 })
 
 const mesh = new THREE.Mesh(geometry, material)
@@ -502,7 +507,7 @@ function animate() {
         const initialColor = {
             r: 0.6,
             g: 0.1,
-            b: 0.4
+            b: 0.4,
         } //these are the initial rgb values of our shape, its initial color!
         //NOTE: if we don't specify world.plane.red/blue/green for these values, then our shape will revert to whatever we specify here when we're no longer hovering. this is... actually a pretty cool effect!
 
@@ -543,17 +548,17 @@ function animate() {
                 color.needsUpdate = true
 
                 //YES! AWESOME!
-            }
+            },
         })
     }
 
     // JUPITER ANIMATION
-    jupiter.position.x += 0.01
-    jupiter.position.y -= 0.02
-    // jupiter.rotateX(0.002)
-    jupiter.rotateY(0.002)
+    // jupiter.position.x += 0.01
+    // jupiter.position.y -= 0.02
+    // // jupiter.rotateX(0.002)
+    // jupiter.rotateY(0.002)
 
-    camera.position.y += 0.01
+    // camera.position.y += 0.01
 
     // mesh.rotateX(0.00001)
 
@@ -562,32 +567,30 @@ function animate() {
     // )
     // console.log('camera rotation: ', camera.rotation)
 
-
-
     //STARS!
     // animateStars()
 
     //TIE ANIMATION
-//     if (tieFighter) {
-//         //if we've loaded our tie fighter...
-//         tieFighter.position.x -= 0.1
-//         tieFighter.position.y -= 0.1
+    //     if (tieFighter) {
+    //         //if we've loaded our tie fighter...
+    //         tieFighter.position.x -= 0.1
+    //         tieFighter.position.y -= 0.1
 
-//         if (tieFighter.position.x < -100) {
-//             //if the tie fighter flies off the screen, plop it back to its original position
-//             tieFighter.position.setY(60)
-//             tieFighter.position.setZ(-5)
-//             tieFighter.position.setX(22)
-//             tieFighter.rotateX(-1.5)
-//         }
-//     }
+    //         if (tieFighter.position.x < -100) {
+    //             //if the tie fighter flies off the screen, plop it back to its original position
+    //             tieFighter.position.setY(60)
+    //             tieFighter.position.setZ(-5)
+    //             tieFighter.position.setX(22)
+    //             tieFighter.rotateX(-1.5)
+    //         }
+    //     }
 }
 // // end of animate function
 
 const mouse = {
     //we're creating a mouse object, and we're gonna set its x and y properties to be the mouse's position in the browser window, every time we move the mouse
     x: undefined,
-    y: undefined
+    y: undefined,
     //but we're gonna have to make an adjustment: browser origin is at the top left, but THREE's origin is in the center of the screen. We want mouse x and y to be relative to the plane, right? Right!
 }
 
@@ -631,6 +634,15 @@ function moveCameraRightQuick(position, rotation) {
     gsap.to(camera.rotation, { duration: 10, z: rotation.z })
 }
 
+function moveCameraOnScroll() {
+    const t = main.getBoundingClientRect().top
+    camera.position.z - t * -0.01
+    camera.position.x = t * -0.0002
+    camera.rotation.y - t * -0.0002
+}
+
+document.body.onscroll = moveCameraOnScroll
+
 function changeColorTheme() {
     currentTheme++
     if (currentTheme === themes.length) {
@@ -644,13 +656,13 @@ function changeColorTheme() {
 const cameraPosition = {
     x: -0.5,
     y: 4,
-    z: -53
+    z: -53,
 }
 
 const cameraRotation = {
     x: 3.11,
     y: 0,
-    z: -3.14
+    z: -3.14,
 }
 
 otherButton.addEventListener('click', () => {
