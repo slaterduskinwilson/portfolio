@@ -3,9 +3,9 @@
 import './style.css'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 // console.log(GLTFLoader)
-import * as dat from 'dat.gui'
+// import * as dat from 'dat.gui'
 import gsap from 'gsap'
 
 // const gui = new dat.GUI()
@@ -263,10 +263,67 @@ const controls = new OrbitControls(camera, renderer.domElement)
 // const planet = new THREE.mesh(sphereGeometry, sphereMaterial);
 // scene.add(planet)
 
-const spaceBackground = new THREE.TextureLoader().load(
-    './assets/jeremy-perkins-space.jpg'
-)
-scene.background = spaceBackground
+
+
+
+//LET'S GET RID OF THIS BIG SLOW STARS BACKGROUND AND MAKE OUR OWN STARS!
+// https://codepen.io/GraemeFulton/pen/BNyQMM?editors=0010
+
+var stars = []
+
+function addSphere(){
+
+    // The loop will move from z position of -1000 to z position 1000, adding a random particle at each position. 
+    for ( var z= -1000; z < 1000; z+=0.5 ) {
+
+        // Make a sphere (exactly the same as before). 
+        var geometry   = new THREE.SphereGeometry(0.2, 32, 32)
+        var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+        var sphere = new THREE.Mesh(geometry, material)
+
+        // This time we give the sphere random x and y positions between -500 and 500
+        sphere.position.x = Math.random() * 1000 - 500;
+        sphere.position.y = Math.random() * 1000 - 500;
+
+        // Then set the z position to where it is in the loop (distance of camera)
+        sphere.position.z = z;
+
+        // scale it up a bit
+        sphere.scale.x = sphere.scale.y = 2;
+
+        //add the sphere to the scene
+        scene.add( sphere );
+
+        //finally push it to the stars array 
+        stars.push(sphere); 
+    }
+}
+
+function animateStars() { 
+    //https://codepen.io/GraemeFulton/pen/BNyQMM?editors=0010
+				
+    // loop through each star
+    for(var i=0; i<stars.length; i++) {
+        
+        let star = stars[i]; 
+            
+        // and move it forward dependent on the mouseY position. 
+        star.position.z +=  i/10;
+            
+        // if the particle is too close move it to the back
+        if(star.position.z>1000) star.position.z-=2000; 
+        
+    }
+
+}
+
+
+
+
+// const spaceBackground = new THREE.TextureLoader().load(
+//     './assets/jeremy-perkins-space.jpg'
+// )
+// scene.background = spaceBackground
 
 const jupiterTexture = new THREE.TextureLoader().load('./assets/jupiter.jpg')
 // we're also gonna ad  a "normal map", which is a weird colored image that gives the appearance of texture
@@ -314,7 +371,7 @@ jupiter.rotateY(-1)
 //     },
 //     function (error) {
 //         console.error(error)
-//     }
+    // }
 // )
 
 const geometry = new THREE.PlaneGeometry(
@@ -505,6 +562,11 @@ function animate() {
     // )
     // console.log('camera rotation: ', camera.rotation)
 
+
+
+    //STARS!
+    // animateStars()
+
     //TIE ANIMATION
 //     if (tieFighter) {
 //         //if we've loaded our tie fighter...
@@ -519,7 +581,7 @@ function animate() {
 //             tieFighter.rotateX(-1.5)
 //         }
 //     }
-// }
+}
 // // end of animate function
 
 const mouse = {
@@ -529,6 +591,7 @@ const mouse = {
     //but we're gonna have to make an adjustment: browser origin is at the top left, but THREE's origin is in the center of the screen. We want mouse x and y to be relative to the plane, right? Right!
 }
 
+addSphere()
 animate()
 
 //now we want to create our hover effect
