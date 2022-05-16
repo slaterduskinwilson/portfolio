@@ -4,54 +4,78 @@
 
 body {
     background-image: url('./images/dickwolf.png');
-    /* background-color: rgb(120, 224, 16); */
-    margin: 1%;
-    text-shadow: 2px 2px black;
 
-    /* text-align: center;
-    height: 100vh; */
-    /* now that the body takes up the entire viewport height, all the text will be smack in the middle of the page */
-    /* overflow: hidden; */
-    /* now scrollbars aren't shown by default */
+    text-shadow: 2px 2px black;
+    color: white;
+
+    text-align: center;
 }
 
-
-.charselect {
-    color: white;
-    
+header {
     display: flex;
-    margin: auto;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.5rem;
+}
+
+.page-content {
+    display: flex;
     align-items: center;
     justify-content: center;
-    
 
+    margin: 0;
+    padding: 0;
+}
 
+.charselect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 70%;
+    background-color: black;
+    padding: 0 0 2rem 0;
+    margin: 2rem;
+    border: 1px solid white;
 }
 
 #lineup {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content:space-around;
-   margin: 0 20px;
-  
-
-   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 75%;
 }
 
-
 .btn {
-    /* background-color: rgb(190, 18, 70); */
     background-image: url('./images/street.png');
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid white;
     color: white;
+
     padding: 1.5rem 3rem;
     margin: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
+    max-height: 8rem;
+    width: clamp(4rem, 8rem, 10rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .btn:hover {
     background-image: url('./images/nyc1.png');
+    text-shadow: 2px 1px 1px black;
 }
 .btn:focus {
     outline: none;
@@ -60,24 +84,78 @@ body {
 #buttons {
     /* this is the area where our play buttons are */
     display: flex;
-    /* to center everything */
+
     flex-wrap: wrap;
-    justify-content: center;
-    /* flex-direction: column; */
+
+    flex-direction: column;
+    max-width: 50%;
+    background-color: black;
+    padding: 0 2rem;
+    border: 1px solid white;
 }
-
-
 
 .tallbutton {
     background-size: 100%;
-    height: 400px;
-    width: 200px;
+    height: clamp(100px, 300px, 400px);
+    width: clamp(100px, 200px, 300px);
+    /* min-height: 400px;
+    min-width: 200px; */
     background-size: cover;
-    color: bisque;
+    color: white;
+
+    text-shadow: 1px 1px 1px black;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     margin: 10px;
+    cursor: pointer;
+}
+
+.tallbutton:hover {
+    font-size: 2rem;
 }
 .hilited {
     border: 5px solid white;
+    font-size: 2rem;
+}
+
+@media (max-width: 900px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    button.tallbutton {
+        background-size: 100%;
+        height: 6rem;
+
+        margin: 1rem;
+    }
+
+    .page-content {
+        margin: 0;
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .charselect {
+        margin: 0 0.5rem;
+        
+    }
+
+    #lineup {
+        margin: 0;
+        padding: 0;
+        /* max-width: min-content; */
+    }
+
+    #buttons {
+        background-color: rgb(30, 29, 29);
+        padding: 0;
+        margin: 0;
+    }
+    #buttons button {
+        width: 3rem;
+        height: 2rem;
+        background-image: url('./images/nyc1.png');
+    }
 }
