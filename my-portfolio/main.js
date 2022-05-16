@@ -44,6 +44,22 @@ let currentMove = 0
 //we need to remember to increment our index AFTER we've animated, so we don't skip the first move in the list
 
 const cameraMoves = [
+    // {
+    //     position: {
+    //         x: 0.00156,
+    //         y: -12,
+    //         z: -3.013,
+    //     },
+    //     rotation: {
+    //         x: 1.736,
+    //         y: 0,
+    //         z: -3.14,
+    //     },
+    // },
+
+   
+  
+    
     {
         position: {
             x: -0.04301093802784941,
@@ -56,18 +72,7 @@ const cameraMoves = [
             z: -3.1360311770623106,
         },
     },
-    {
-        position: {
-            x: 0.01,
-            y: -101.51,
-            z: -21.15,
-        },
-        rotation: {
-            x: 1.79,
-            y: 0,
-            z: -3.14,
-        },
-    },
+   
     {
         position: {
             x: -0.5,
@@ -80,9 +85,21 @@ const cameraMoves = [
             z: -3.14,
         },
     },
-    //x: 0.006639061713842827 , y: -76.84965623151145, z: -13.335661962538065
 
-    {
+      {
+        position: {
+            x: 0.01,
+            y: -101.51,
+            z: -21.15,
+        },
+        rotation: {
+            x: 1.79,
+            y: 0,
+            z: -3.14,
+        },
+    },
+
+     {
         position: {
             x: 16.25,
             y: 10,
@@ -95,18 +112,10 @@ const cameraMoves = [
         },
     },
 
-    {
-        position: {
-            x: 0.00156,
-            y: -12,
-            z: -3.013,
-        },
-        rotation: {
-            x: 1.736,
-            y: 0,
-            z: -3.14,
-        },
-    },
+    //x: 0.006639061713842827 , y: -76.84965623151145, z: -13.335661962538065
+
+  
+  
 
   
 ]
@@ -254,7 +263,7 @@ document.body.appendChild(renderer.domElement)
 
 camera.position.x = 5
 camera.position.y = 4
-camera.position.z = -50
+camera.position.z = -30
 
 // camera.rotation.x = 3
 // camera.rotation.y = 10
