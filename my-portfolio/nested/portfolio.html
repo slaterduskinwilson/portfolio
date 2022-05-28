@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&family=Electrolize&display=swap"
             rel="stylesheet"
         />
         <link
@@ -36,17 +36,19 @@
                 -webkit-font-smoothing: antialiased;
                 /* antialiasing makes our fonts clearer, only works on macos. see https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
                 box-sizing: border-box;
+               
             }
 
             .font-creepster {
                 font-family: 'Creepster', sans-serif;
-               
-                
             }
 
             .font-pixel {
                 font-family: 'VT323', monospace;
-              
+            }
+
+            .font-electrolize {
+                font-family: 'Electrolize', sans-serif;
             }
         </style>
         <!-- <script type="module" crossorigin src="/assets/index.1b8d336d.js"></script>
@@ -54,62 +56,79 @@
       <link rel="stylesheet" href="/assets/index.1725faed.css"> -->
     </head>
     <body>
-        <div class="min-h-screen bg-neutral-900">
-
-
-            <div
-                class="w-96 p-4 flex-col m-auto"
-            >
+        <div class="overflow-hidden min-h-screen bg-neutral-900">
+            <div class="w-96 p-4 flex-col m-auto">
                 <h1
                     class="font-creepster lg:text-8xl text-7xl tracking-wide text-pink-500"
-                    
                 >
-                <a href="/">Matthew Wilson</a>
+                    <a href="/">Matthew Wilson</a>
                 </h1>
-              
-
-              
-               
             </div>
-
-
-
-
-
-       
-  <div class="subtitle flex-col font-pixel text-2xl text-white hover:text-pink-600 w-96 m-auto p-4"
-  >
-                    
-      
-
-                <h2 class="text-5xl" > <a  
-                    href="https://github.com/slaterduskinwilson/portfolio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >This Is My Portfolio.</a
-                ></h2>
-
-                <div class="mt-4">
-                
-                <h4 > <a  
-                    href="https://github.com/slaterduskinwilson/portfolio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Click here to view these projects on GitHub.</a
-                ></h4>
-            </div>
-              
-
-             
-            
-
-            
-           </div>
-            
 
             <div
-                class="project-section sm:container flex flex-wrap justify-center items-start mt-8 m-auto font-pixel text-xl text-white">
-            
+                class="subtitle flex-col font-electrolize text-2xl text-white hover:text-pink-600 w-96 m-auto p-4"
+            >
+                <h2 class="text-5xl">
+                    <a
+                        href="https://github.com/slaterduskinwilson/portfolio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >This Is My Portfolio of Software Projects.</a
+                    >
+                </h2>
+
+                <div class="mt-4">
+                    <h4>
+                        <a
+                            href="https://github.com/slaterduskinwilson/portfolio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Click here to view these projects on GitHub.</a
+                        >
+                    </h4>
+                </div>
+            </div>
+
+            <div
+                class="project-section sm:container flex flex-wrap justify-center items-around mt-8 m-auto font-electrolize text-xl text-white"
+            >
+                <div
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-xs"
+                >
+                    <a href="https://panther-gray.web.app">
+                        <div class="project-title">
+                            <h2 class="mb-8 text-3xl text-center font-bold">
+                                SF Gray Panthers Website (work in progress)
+                            </h2>
+                        </div>
+                        <img
+                            class=" "
+                            src="../assets/pantherSample.png"
+                            alt="picture of SFGP website"
+                        />
+                        <div class="description m-4 ">
+                            <p class="mb-3 font-bold">
+                                Full stack website for a senior-citizens
+                                advocacy nonprofit. Responsive front-end with
+                                editable content using Sanity CMS. Includes a
+                                member database interface and email and payment integration.
+                            </p>
+                            <ul class="mt-4 mb-2 list-disc">
+                                <li>
+                                    Front end: React, Bootstrap CSS, Sanity
+                                    Content Management System
+                                </li>
+                                <li>
+                                    Back end: Node.js, Firebase Cloud Firestore,
+                                    Google Cloud Functions, Sender.net email
+                                    marketing service
+                                </li>
+                                <li>Authentication: Firebase</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
                 <div
                     class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-xs"
                 >
@@ -117,7 +136,7 @@
                         href="https://github.com/slaterduskinwilson/portfolio/tree/main/quit-music"
                     >
                         <div class="project-title">
-                            <h2 class="mb-8 text-3xl font-bold text-center">
+                            <h2 class="mb-8 text-3xl text-center font-bold">
                                 Quit Music, Go Back To School
                             </h2>
                         </div>
@@ -127,7 +146,7 @@
                             alt="bryan ferry looking like bryan ferry"
                         />
                         <div class="description m-4">
-                            <p class="mb-3 font-bold">
+                            <p class="mb-3">
                                 Full stack music playback and storage app, for
                                 collaboration on new tracks between band
                                 members.
@@ -147,14 +166,12 @@
                     </a>
                 </div>
 
-                <div
+                <!-- <div
                     class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 max-w-xs flex flex-column"
                 >
                     <a href="https://slaterversus.com">
                         <div class="project-title">
-                            <h2 class="mb-8 text-3xl font-bold text-center">
-                                CMS Blog
-                            </h2>
+                            <h2 class="mb-8 text-3xl text-center font-bold">CMS Blog</h2>
                         </div>
                         <img
                             class="h-50"
@@ -172,10 +189,9 @@
                                 </li>
                                 <li>Backend content from Sanity CMS</li>
                             </ul>
-                            
                         </div>
                     </a>
-                </div>
+                </div> -->
 
                 <div
                     class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 max-w-xs flex flex-column"
@@ -231,7 +247,6 @@
             </a>
         </div> -->
             </div>
-   
-       </div>
+        </div>
     </body>
 </html>

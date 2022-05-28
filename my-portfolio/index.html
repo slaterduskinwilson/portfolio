@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Creepster&family=VT323&family=Electrolize&display=swap"
             rel="stylesheet"
         />
         <link
@@ -52,6 +52,10 @@
                 font-family: 'VT323', monospace;
             }
 
+            .font-electrolize {
+                font-family: 'Electrolize', sans-serif;
+            }
+
             .shadowy {
                 text-shadow: 2px 2px 10px black;
             }
@@ -61,17 +65,13 @@
       <link rel="stylesheet" href="/public/assets//index.1725faed.css"> -->
     </head>
     <body>
-     
-            <div
-                class="absolute text-white text-center flex-col sm:container mt-10 lg:mt-12 m-auto"
-                
-                
-            >
-                <!-- inline style contains the old-school trick for centering a div... cumbersome! -->
-                <!-- style="top: 65%; transform: translate(-50%, -50%); left: 50%" -->
-                
+        <div
+            class="max-w-screen absolute text-white text-center flex-col sm:container mt-10 lg:mt-12 m-auto"
+        >
+            <!-- inline style contains the old-school trick for centering a div... cumbersome! -->
+            <!-- style="top: 65%; transform: translate(-50%, -50%); left: 50%" -->
 
-                <header class="bg-yellow-300 p-2 rounded-md max-w-fit m-auto">
+            <header class="bg-yellow-300 p-2 rounded-md max-w-fit m-auto">
                 <h1
                     class="font-creepster text-7xl lg:text-8xl tracking-wide p-8"
                     contenteditable="true"
@@ -80,95 +80,91 @@
                 </h1>
 
                 <h3
-                    class="font-pixel text-3xl lg:text-5xl hover:text-pink-600 lg:my-8 my-4 mx-2 p-2 text-black"
+                    class="font-electrolize text-3xl lg:text-5xl hover:text-pink-600 lg:my-8 my-4 mx-2 p-2 text-black"
                 >
                     <!-- "shadowy" is my own class, i access it in in the style section of the head of this html file to add a text shadow for a little better readability-->
                     <a
                         href="./nested/contact.html"
                         target="_blank"
                         rel="noopener noreferrer"
-                        >I'm a full stack developer. Click here to contact me.</a
+                        >I'm a full stack developer. Click here to contact
+                        me.</a
                     >
                 </h3>
-
             </header>
 
-                <!-- anchor tags have a default class of inline in tailwind, so if we want all our style to happen we need to specify that it's inline-block instead -->
+            <!-- anchor tags have a default class of inline in tailwind, so if we want all our style to happen we need to specify that it's inline-block instead -->
 
-                <nav
-                    class="the-buttons flex flex-col w-4/5 lg:mt-10 mx-auto my-7 min-h-full lg:text-2xl"
-                >
-                    <div class="sublinks flex justify-center h-full">
-                        <div class="">
-                            <button
-                                id="other-button"
-                                class="font-pixel border px-4 py-2 rounded-md uppercase tracking-wide bg-white text-gray-800 m-2 hover:bg-yellow-200"
+            <nav
+                class="the-buttons flex flex-col w-4/5 lg:mt-10 mx-auto my-7 min-h-full lg:text-2xl"
+            >
+                <div class="sublinks flex justify-center h-full">
+                    <div class="">
+                        <button
+                            id="other-button"
+                            class="font-electrolize border px-4 py-2 rounded-md uppercase tracking-wide bg-white text-gray-800 m-2 hover:bg-yellow-200"
+                        >
+                            Change The View!
+                        </button>
+                    </div>
+
+                    <!-- <div class="portfolio-button group"> -->
+                    <div class="">
+                        <button
+                            class="font-electrolize border px-4 py-2 rounded-md uppercase tracking-wide m-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 max-h-fit"
+                        >
+                            <a href="./nested/portfolio.html"
+                                >Look At My Portfolio</a
                             >
-                                Change The View!
-                            </button>
-                        </div>
+                        </button>
+                    </div>
 
-                        <!-- <div class="portfolio-button group"> -->
-                        <div class="">
+                    <div>
+                        <div class="portfolio-button group">
                             <button
-                                class="font-pixel border px-4 py-2 rounded-md uppercase tracking-wide m-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 max-h-fit"
+                                class="font-electrolize border px-4 py-2 rounded-md uppercase tracking-wide m-2 bg-white text-gray-800 m-2 hover:bg-yellow-200"
                             >
-                                <a href="./nested/portfolio.html"
-                                    >Look At My Portfolio</a
-                                >
+                                Learn Things About Me
                             </button>
-                        </div>
 
-                   
+                            <div class="portfolio-children w-min">
+                                <ul class="flex flex-col p-2">
+                                    <li>
+                                        <a
+                                            href="https://www.linkedin.com/in/slaterduskinwilson"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-block font-electrolize border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
+                                            >LinkedIn</a
+                                        >
+                                    </li>
 
-                        <div>
-                            <div class="portfolio-button group">
-                                <button
-                                    class="font-pixel border px-4 py-2 rounded-md uppercase tracking-wide m-2 bg-white text-gray-800 m-2 hover:bg-yellow-200"
-                                >
-                                    Learn Things About Me
-                                </button>
+                                    <li>
+                                        <a
+                                            href="https://github.com/slaterduskinwilson/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-block font-electrolize border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
+                                            >GitHub</a
+                                        >
+                                    </li>
 
-                                <div class="portfolio-children w-min">
-                                    <ul class="flex flex-col p-2 ">
-                                        <li>
-                                            <a
-                                                href="https://www.linkedin.com/in/slaterduskinwilson"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="inline-block font-pixel border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
-                                                >LinkedIn</a
-                                            >
-                                        </li>
-
-                                        <li>
-                                            <a
-                                                href="https://github.com/slaterduskinwilson/"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="inline-block font-pixel border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
-                                                >GitHub</a
-                                            >
-                                        </li>
-
-                                        <li>
-                                            <a
-                                                href="https://nsajk.bandcamp.com"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                class="inline-block font-pixel border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
-                                                >Music</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <li>
+                                        <a
+                                            href="https://nsajk.bandcamp.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-block font-electrolize border w-full px-4 py-2 rounded-md uppercase tracking-wide mt-2 bg-white text-gray-800 m-2 hover:bg-yellow-200 scale-0 group-hover:scale-100 transition"
+                                            >Music</a
+                                        >
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </nav>
-            </div>
-
-        
+                </div>
+            </nav>
+        </div>
 
         <script type="module" src="/main.js"></script>
     </body>
