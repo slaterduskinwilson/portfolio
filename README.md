@@ -44,7 +44,7 @@ Full stack mp3 storage and playback app, to facilitate remote collaboration on n
 
 ---
 
-### SVU Soundboard
+### [SVU Soundboard](https://svu-soundboard.web.app/)
 Single-page web audio soundboard, with a Law & Order SVU and late '90s theme.
 - Vanilla Javascript (try the Konami Code)
 - Responsive CSS
