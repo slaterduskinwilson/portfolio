@@ -36,7 +36,6 @@
                 -webkit-font-smoothing: antialiased;
                 /* antialiasing makes our fonts clearer, only works on macos. see https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
                 box-sizing: border-box;
-               
             }
 
             .font-creepster {
@@ -56,62 +55,68 @@
       <link rel="stylesheet" href="/assets/index.1725faed.css"> -->
     </head>
     <body>
-        <div class="overflow-hidden min-h-screen bg-neutral-900">
-            <div class="w-96 p-4 flex-col m-auto">
-                <h1
-                    class="font-creepster lg:text-8xl text-7xl tracking-wide text-pink-500"
-                >
-                    <a href="/">Matthew Wilson</a>
-                </h1>
-            </div>
-
-            <div
-                class="subtitle flex-col font-electrolize text-2xl text-white hover:text-pink-600 w-96 m-auto p-4"
-            >
-                <h2 class="text-5xl">
-                    <a
-                        href="https://github.com/slaterduskinwilson/portfolio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >This Is My Portfolio of Software Projects.</a
+        <div class="bg-neutral-900 flex flex-wrap px-4">
+            <header class="mx-2 max-w-sm text-center">
+                <div class="p-4 flex-col">
+                    <h1
+                        class="font-creepster lg:text-8xl text-7xl tracking-wide text-pink-500"
                     >
-                </h2>
+                        <a href="/">Matthew Wilson</a>
+                    </h1>
+                </div>
 
-                <div class="mt-4">
-                    <h4>
+                <div
+                    class="subtitle flex-col font-electrolize text-2xl text-white hover:text-pink-600 max-w-md p-6"
+                >
+                    <h2 class="text-5xl">
                         <a
                             href="https://github.com/slaterduskinwilson/portfolio"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >Click here to view these projects on GitHub.</a
+                            >This Is My Portfolio of Software Projects.</a
                         >
-                    </h4>
+                    </h2>
+
+                    <div class="mt-4">
+                        <h4>
+                            <a
+                                href="https://github.com/slaterduskinwilson/portfolio"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Click here to view these projects on GitHub.</a
+                            >
+                        </h4>
+                    </div>
                 </div>
-            </div>
+            </header>
 
             <div
-                class="project-section sm:container flex flex-wrap justify-center items-around mt-8 m-auto font-electrolize text-xl text-white"
+                style="max-width: 48rem"
+                class="project-section sm:container flex flex-col flex-wrap justify-center items-center m-auto font-electrolize text-xl text-white"
             >
                 <div
-                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-xs"
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-2xl"
                 >
                     <a href="https://panther-gray.web.app">
                         <div class="project-title">
-                            <h2 class="mb-8 text-3xl text-center font-bold">
+                            <h2 class="mb-5 text-3xl text-center font-bold">
                                 SF Gray Panthers Website (work in progress)
                             </h2>
                         </div>
                         <img
-                            class=" "
+                            class="border-black border-4 my-8"
                             src="../assets/pantherSample.png"
                             alt="picture of SFGP website"
                         />
-                        <div class="description m-4 ">
-                            <p class="mb-3 font-bold">
+                        <div class="description my-5">
+                            <p
+                                class="font-bold bg-slate-200 text-black p-6 mb-8"
+                            >
                                 Full stack website for a senior-citizens
                                 advocacy nonprofit. Responsive front-end with
                                 editable content using Sanity CMS. Includes a
-                                member database interface and email and payment integration.
+                                member database interface and email and payment
+                                integration.
                             </p>
                             <ul class="mt-4 mb-2 list-disc">
                                 <li>
@@ -130,7 +135,7 @@
                 </div>
 
                 <div
-                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-xs"
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 flex flex-column max-w-2xl"
                 >
                     <a
                         href="https://github.com/slaterduskinwilson/portfolio/tree/main/quit-music"
@@ -141,12 +146,14 @@
                             </h2>
                         </div>
                         <img
-                            class=" "
+                            class="border-black border-4 my-8"
                             src="../assets/11.png"
                             alt="bryan ferry looking like bryan ferry"
                         />
                         <div class="description m-4">
-                            <p class="mb-3">
+                            <p
+                                class="mb-8 font-bold bg-slate-200 text-black p-6"
+                            >
                                 Full stack music playback and storage app, for
                                 collaboration on new tracks between band
                                 members.
@@ -194,7 +201,7 @@
                 </div> -->
 
                 <div
-                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 max-w-xs flex flex-column"
+                    class="single-project rounded-sm hover:bg-pink-500 bg-blue-700 m-4 p-8 max-w-2xl flex flex-column"
                 >
                     <a href="https://svu-soundboard.web.app/">
                         <div class="project-title">
@@ -203,12 +210,14 @@
                             </h2>
                         </div>
                         <img
-                            class="w-50 h-50"
+                            class="w-50 h-50 border-black border-4 my-8"
                             src="../assets/svu.png"
                             alt="the dedicated detectives who investigate these vicious felonies"
                         />
                         <div class="description m-4">
-                            <p class="mb-3 font-bold">
+                            <p
+                                class="mb-8 font-bold bg-slate-200 text-black p-6"
+                            >
                                 Single-page web audio soundboard, with a Law &
                                 Order SVU and late '90s theme.
                             </p>
@@ -247,6 +256,7 @@
             </a>
         </div> -->
             </div>
+            <!-- above is the project section div! -->
         </div>
     </body>
 </html>
